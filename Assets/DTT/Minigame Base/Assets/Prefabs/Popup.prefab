@@ -371,7 +371,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: a990d9e9accabd147bc8f9d289aa5ed6, type: 3}
+    m_Font: {fileID: 12800000, guid: fa7b03d1324a4dbcb597072a16a6a8ef, type: 3}
     m_FontSize: 80
     m_FontStyle: 0
     m_BestFit: 0
@@ -383,7 +383,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: GAME PAUSED
+  m_Text: LÎSTIK HAT RAWESTANDIN
 --- !u!1 &5049070564731676460
 GameObject:
   m_ObjectHideFlags: 0
@@ -635,7 +635,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: a990d9e9accabd147bc8f9d289aa5ed6, type: 3}
+    m_Font: {fileID: 12800000, guid: fa7b03d1324a4dbcb597072a16a6a8ef, type: 3}
     m_FontSize: 80
     m_FontStyle: 0
     m_BestFit: 0
@@ -647,7 +647,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: GAME PAUSED
+  m_Text: LÎSTIK HAT RAWESTANDIN
 --- !u!1 &6887864108992368941
 GameObject:
   m_ObjectHideFlags: 0

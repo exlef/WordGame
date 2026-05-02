@@ -35,10 +35,10 @@ namespace DTT.WordConnect
         /// <param name="descriptionHint">The description attached to the given word.</param>
         public HintOption(string wordHintOption, string descriptionHint)
         {
-            Word = wordHintOption;
-            WordDescription = descriptionHint;
+            Word = KurmanjiTextUtility.NormalizeWord(wordHintOption);
+            WordDescription = KurmanjiTextUtility.NormalizeDisplayText(descriptionHint);
             // Build a list of false bools with the word as length of the list.
-            LetterRevealed = Enumerable.Repeat(false, wordHintOption.Length).ToList();
+            LetterRevealed = Enumerable.Repeat(false, Word.Length).ToList();
             // If the description is empty initialize the hint option as if its description has already been revealed.
             // Some developers might not want to implement descriptive hints.
             DescriptionRevealed = string.IsNullOrEmpty(descriptionHint);

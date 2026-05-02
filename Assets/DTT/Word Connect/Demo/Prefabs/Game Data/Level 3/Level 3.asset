@@ -68,45 +68,36 @@ MonoBehaviour:
     - {x: 2, y: 1}
     - {x: 2, y: -1}
     - {x: 3, y: 0}
-    <WordHintPair>k__BackingField: {fileID: 11400000, guid: b8df822bec03d15408917bce319a67ee, type: 2}
-  - <OriginPosition>k__BackingField: {x: 0, y: 3}
+    <WordHintPair>k__BackingField: {fileID: 11400000, guid: 553d6544917f0d4428314bc4c371d8c0, type: 2}
+  - <OriginPosition>k__BackingField: {x: 0, y: 2}
     <IsDown>k__BackingField: 1
     <OccupiedPositions>k__BackingField:
-    - {x: 0, y: 3}
     - {x: 0, y: 2}
     - {x: 0, y: 1}
     - {x: 0, y: 0}
     <InfluencedPositions>k__BackingField:
-    - {x: -1, y: 3}
-    - {x: 1, y: 3}
-    - {x: 0, y: 4}
     - {x: -1, y: 2}
     - {x: 1, y: 2}
+    - {x: 0, y: 3}
     - {x: -1, y: 1}
     - {x: 1, y: 1}
     - {x: -1, y: 0}
     - {x: 1, y: 0}
     - {x: 0, y: -1}
-    <WordHintPair>k__BackingField: {fileID: 11400000, guid: 553d6544917f0d4428314bc4c371d8c0, type: 2}
-  - <OriginPosition>k__BackingField: {x: 2, y: 3}
+    <WordHintPair>k__BackingField: {fileID: 11400000, guid: c20c9960d467f3a4aa809b55726e71e0, type: 2}
+  - <OriginPosition>k__BackingField: {x: 2, y: 0}
     <IsDown>k__BackingField: 1
     <OccupiedPositions>k__BackingField:
-    - {x: 2, y: 3}
-    - {x: 2, y: 2}
-    - {x: 2, y: 1}
     - {x: 2, y: 0}
+    - {x: 2, y: -1}
     <InfluencedPositions>k__BackingField:
-    - {x: 1, y: 3}
-    - {x: 3, y: 3}
-    - {x: 2, y: 4}
-    - {x: 1, y: 2}
-    - {x: 3, y: 2}
-    - {x: 1, y: 1}
-    - {x: 3, y: 1}
     - {x: 1, y: 0}
     - {x: 3, y: 0}
-    - {x: 2, y: -1}
-    <WordHintPair>k__BackingField: {fileID: 11400000, guid: c20c9960d467f3a4aa809b55726e71e0, type: 2}
+    - {x: 2, y: 1}
+    - {x: 1, y: -1}
+    - {x: 3, y: -1}
+    - {x: 2, y: -2}
+    <WordHintPair>k__BackingField: {fileID: 11400000, guid: b8df822bec03d15408917bce319a67ee, type: 2}
   - <OriginPosition>k__BackingField: {x: -2, y: 2}
     <IsDown>k__BackingField: 0
     <OccupiedPositions>k__BackingField:
@@ -141,23 +132,23 @@ MonoBehaviour:
     <WordHintPair>k__BackingField: {fileID: 11400000, guid: 3dce2e54b1fb0fe479389a0767497dea, type: 2}
   _gridWidth: 5
   _flattenedLetterLayout:
-  - $
-  - $
-  - s
-  - $
-  - w
-  - s
+  - ş
   - e
-  - t
+  - r
   - $
-  - e
+  - 
   - e
   - $
   - e
   - $
-  - s
-  - w
   - $
-  - w
-  - e
-  - t
+  - v
+  - $
+  - ş
+  - ê
+  - r
+  - $
+  - 
+  - $
+  - $
+  - ê

@@ -125,7 +125,7 @@ namespace DTT.WordConnect
             // Get all words and word hint pairs from the configuration object and add them to the lists.
             foreach (WordVector wordVector in Configuration.WordVectors)
             {
-                wordsInCrossword.Add(wordVector.WordHintPair.Word);
+                wordsInCrossword.Add(KurmanjiTextUtility.NormalizeWord(wordVector.WordHintPair.Word));
                 wordsHintsInCrossword.Add(wordVector.WordHintPair);
             }
 
@@ -285,7 +285,7 @@ namespace DTT.WordConnect
                         // Get the other word that this letter overlaps.
                         string overlappingWord = Configuration.GetLetterOverlap(hint.Word, i).Item1;
                         // If the overlapped word is already found this is not a viable letter to reveal as it has already been found!
-                        if (!WordConnectState.CorrectlyAddedWords.Contains(overlappingWord))
+                        if (!WordConnectState.CorrectlyAddedWords.Any(word => KurmanjiTextUtility.WordsEqual(word, overlappingWord)))
                         {
                             availableLetters.Add(i);
                         }
@@ -309,10 +309,10 @@ namespace DTT.WordConnect
                 // Gets the word string for the overlapping word and the index of the letter which overlaps.
                 (string, int) wordLetterIndex = Configuration.GetLetterOverlap(hint.Word, chosenHintLetter);
                 // If this word is not hintable skip the next part.
-                if (WordConnectState.HintOptions.Any(x => x.Word == wordLetterIndex.Item1))
+                if (WordConnectState.HintOptions.Any(x => KurmanjiTextUtility.WordsEqual(x.Word, wordLetterIndex.Item1)))
                 {
                     // Find the HintOption object for the overlapping word.
-                    HintOption overlappingHint = WordConnectState.HintOptions.Find(x => x.Word == wordLetterIndex.Item1);
+                    HintOption overlappingHint = WordConnectState.HintOptions.Find(x => KurmanjiTextUtility.WordsEqual(x.Word, wordLetterIndex.Item1));
                     // Set the overlapping letter index to revealed.
                     WordConnectState.SetHintLetterRevealed(overlappingHint, wordLetterIndex.Item2);
                 }
@@ -376,9 +376,9 @@ namespace DTT.WordConnect
                     // Gets the word string for the overlapping word and the index of the letter which overlaps.
                     (string, int) wordLetterIndex = Configuration.GetLetterOverlap(hint.Word, i);
                     // If this word is not a hintable, skip the next part.
-                    if (!WordConnectState.HintOptions.Any(x => x.Word == wordLetterIndex.Item1)) continue;
+                    if (!WordConnectState.HintOptions.Any(x => KurmanjiTextUtility.WordsEqual(x.Word, wordLetterIndex.Item1))) continue;
                     // Find the HintOption object for the overlapping word.
-                    HintOption overlappingHint = WordConnectState.HintOptions.Find(x => x.Word == wordLetterIndex.Item1);
+                    HintOption overlappingHint = WordConnectState.HintOptions.Find(x => KurmanjiTextUtility.WordsEqual(x.Word, wordLetterIndex.Item1));
                     // Set the overlapping letter index to revealed.
                     WordConnectState.SetHintLetterRevealed(overlappingHint, wordLetterIndex.Item2);
                 }
@@ -428,12 +428,12 @@ namespace DTT.WordConnect
             // Word input is empty or null.
             if (WordConnectState == null || WordConnectState.CurrentWordInput == null || WordConnectState.CurrentWordInput.Count == 0) return;
 
-            string spelledWord = WordConnectState.GetCurrentWordInput().ToLower();
+            string spelledWord = KurmanjiTextUtility.NormalizeWord(WordConnectState.GetCurrentWordInput());
             // Check if the crossword contains the spelled word.
-            if (WordConnectState.WordsInCrossword.Contains(spelledWord, StringComparer.OrdinalIgnoreCase))
+            if (WordConnectState.WordsInCrossword.Any(word => KurmanjiTextUtility.WordsEqual(word, spelledWord)))
             {
                 // Check if this word hasn't already been found.
-                if (WordConnectState.CorrectlyAddedWords.Contains(spelledWord, StringComparer.OrdinalIgnoreCase))
+                if (WordConnectState.CorrectlyAddedWords.Any(word => KurmanjiTextUtility.WordsEqual(word, spelledWord)))
                 {
                     // Word has already been found, clear the streak.
                     WordConnectState.ClearStreak();
@@ -475,15 +475,15 @@ namespace DTT.WordConnect
                 return false;
 
             // Get all the words in the game.
-            List<string> wordsInCrossword = WordConnectState.WordsInCrossword;
+            List<string> wordsInCrossword = new List<string>(WordConnectState.WordsInCrossword);
 
             // Remove all words that have been added from the list.
             foreach (string word in WordConnectState.CorrectlyAddedWords)
-                wordsInCrossword.Remove(word);
+                wordsInCrossword.RemoveAll(crosswordWord => KurmanjiTextUtility.WordsEqual(crosswordWord, word));
 
             // Remove all words that have been completely revealed by hinting.
             foreach(HintOption hint in WordConnectState.CompletelyHintedWords)
-                wordsInCrossword.Remove(hint.Word);
+                wordsInCrossword.RemoveAll(crosswordWord => KurmanjiTextUtility.WordsEqual(crosswordWord, hint.Word));
 
             // If the list has no words left, this indicates all words have either been found or completely hinted.
             return wordsInCrossword.Count == 0;

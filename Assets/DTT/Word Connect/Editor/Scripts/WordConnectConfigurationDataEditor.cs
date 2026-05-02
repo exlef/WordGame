@@ -103,7 +103,7 @@ namespace DTT.WordConnect.Editor
 
                         // If the tile is a letter tile draw a box with the custom styling.
                         else
-                            GUILayout.Box(gridLetter.ToUpper(), tileStyle, GUILayout.Width(tileSize), GUILayout.Height(tileSize));
+                            GUILayout.Box(KurmanjiTextUtility.ToDisplayUpper(gridLetter), tileStyle, GUILayout.Width(tileSize), GUILayout.Height(tileSize));
 
                         // If the modulo of i is equal to 0, this means this iteration over the flattened list is on the next row of the grid.
                         // Start a new horizontal layout.

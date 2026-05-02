@@ -60,6 +60,7 @@ MonoBehaviour:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
     - {x: 2, y: 0}
+    - {x: 3, y: 0}
     <InfluencedPositions>k__BackingField:
     - {x: 0, y: 1}
     - {x: 0, y: -1}
@@ -68,8 +69,10 @@ MonoBehaviour:
     - {x: 1, y: -1}
     - {x: 2, y: 1}
     - {x: 2, y: -1}
-    - {x: 3, y: 0}
-    <WordHintPair>k__BackingField: {fileID: 11400000, guid: a464b9cef9fa3bf4eae24dd289eae83a, type: 2}
+    - {x: 3, y: 1}
+    - {x: 3, y: -1}
+    - {x: 4, y: 0}
+    <WordHintPair>k__BackingField: {fileID: 11400000, guid: acf5c55856483aa4797a21b6bd90d97b, type: 2}
   - <OriginPosition>k__BackingField: {x: 0, y: 0}
     <IsDown>k__BackingField: 1
     <OccupiedPositions>k__BackingField:
@@ -85,65 +88,55 @@ MonoBehaviour:
     - {x: -1, y: -2}
     - {x: 1, y: -2}
     - {x: 0, y: -3}
-    <WordHintPair>k__BackingField: {fileID: 11400000, guid: 66793574bc0bbed49ba5514c9db37f74, type: 2}
-  - <OriginPosition>k__BackingField: {x: 2, y: 3}
+    <WordHintPair>k__BackingField: {fileID: 11400000, guid: a464b9cef9fa3bf4eae24dd289eae83a, type: 2}
+  - <OriginPosition>k__BackingField: {x: 3, y: 1}
     <IsDown>k__BackingField: 1
     <OccupiedPositions>k__BackingField:
-    - {x: 2, y: 3}
-    - {x: 2, y: 2}
-    - {x: 2, y: 1}
-    - {x: 2, y: 0}
-    <InfluencedPositions>k__BackingField:
-    - {x: 1, y: 3}
-    - {x: 3, y: 3}
-    - {x: 2, y: 4}
-    - {x: 1, y: 2}
-    - {x: 3, y: 2}
-    - {x: 1, y: 1}
     - {x: 3, y: 1}
-    - {x: 1, y: 0}
     - {x: 3, y: 0}
+    - {x: 3, y: -1}
+    <InfluencedPositions>k__BackingField:
+    - {x: 2, y: 1}
+    - {x: 4, y: 1}
+    - {x: 3, y: 2}
+    - {x: 2, y: 0}
+    - {x: 4, y: 0}
     - {x: 2, y: -1}
-    <WordHintPair>k__BackingField: {fileID: 11400000, guid: acf5c55856483aa4797a21b6bd90d97b, type: 2}
-  - <OriginPosition>k__BackingField: {x: 1, y: 3}
+    - {x: 4, y: -1}
+    - {x: 3, y: -2}
+    <WordHintPair>k__BackingField: {fileID: 11400000, guid: 66793574bc0bbed49ba5514c9db37f74, type: 2}
+  - <OriginPosition>k__BackingField: {x: -1, y: -2}
     <IsDown>k__BackingField: 0
     <OccupiedPositions>k__BackingField:
-    - {x: 1, y: 3}
-    - {x: 2, y: 3}
-    - {x: 3, y: 3}
+    - {x: -1, y: -2}
+    - {x: 0, y: -2}
     <InfluencedPositions>k__BackingField:
-    - {x: 1, y: 4}
-    - {x: 1, y: 2}
-    - {x: 0, y: 3}
-    - {x: 2, y: 4}
-    - {x: 2, y: 2}
-    - {x: 3, y: 4}
-    - {x: 3, y: 2}
-    - {x: 4, y: 3}
+    - {x: -1, y: -1}
+    - {x: -1, y: -3}
+    - {x: -2, y: -2}
+    - {x: 0, y: -1}
+    - {x: 0, y: -3}
+    - {x: 1, y: -2}
     <WordHintPair>k__BackingField: {fileID: 11400000, guid: 740190b10bd1c944f98c841701d4869f, type: 2}
-  _gridWidth: 4
+  _gridWidth: 5
   _flattenedLetterLayout:
-  - $
-  - y
-  - e
-  - s
   - 
+  - $
+  - $
+  - $
+  - n
+  - $
+  - n
+  - a
+  - v
+  - a
   - $
   - a
   - $
   - $
-  - $
-  - s
-  - $
-  - s
+  - n
   - a
-  - y
-  - $
-  - e
-  - $
+  - v
   - $
   - 
-  - a
   - $
-  - 
-  - 

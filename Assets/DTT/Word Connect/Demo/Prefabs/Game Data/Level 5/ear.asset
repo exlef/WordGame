@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: da65392cfacad6b4a96ccab254c9d166, type: 3}
-  m_Name: ear
+  m_Name: şev
   m_EditorClassIdentifier: 
-  <Word>k__BackingField: ear
-  <Hint>k__BackingField: The part of the human body which perceives sound.
+  <Word>k__BackingField: şev
+  <Hint>k__BackingField: Dema piştî êvarê.

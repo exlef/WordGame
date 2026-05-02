@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: da65392cfacad6b4a96ccab254c9d166, type: 3}
-  m_Name: say
+  m_Name: nav
   m_EditorClassIdentifier: 
-  <Word>k__BackingField: say
-  <Hint>k__BackingField: The verb of speech.
+  <Word>k__BackingField: nav
+  <Hint>k__BackingField: Peyva ku mirov pê tê nasîn.

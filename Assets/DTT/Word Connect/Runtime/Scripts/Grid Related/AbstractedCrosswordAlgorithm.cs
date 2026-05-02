@@ -118,7 +118,7 @@ namespace DTT.WordConnect
                     // Check if any of the letters can be extended from.
                     for (int i1 = 0; i1 < givenPair.Word.Length; i1++)
                     {
-                        if (char.ToUpper(checkedLetter) == char.ToUpper(givenPair.Word[i1]))
+                        if (char.ToUpperInvariant(checkedLetter) == char.ToUpperInvariant(givenPair.Word[i1]))
                         {
                             // Helper bool to track if the new word is extending down or across from the checked letter.
                             bool isDown = !wordVector.IsDown;

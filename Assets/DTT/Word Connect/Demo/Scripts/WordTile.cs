@@ -82,7 +82,7 @@ namespace DTT.WordConnect.Demo
         private void CheckIfLetterHinted(WordConnectState state)
         {
             // If the CompletelyHintedWords list contains this word, set all letters to hinted.
-            if (state.CompletelyHintedWords.Any(x => x.Word == WordHint.Word))
+            if (state.CompletelyHintedWords.Any(x => KurmanjiTextUtility.WordsEqual(x.Word, WordHint.Word)))
             {
                 SetHintedLetters();
                 return;
@@ -91,7 +91,7 @@ namespace DTT.WordConnect.Demo
             foreach (HintOption hint in state.HintOptions)
             {
                 // If this HintOption represents the same word, update the letter tiles state to reflect which letters are revealed.
-                if (hint.Word == WordHint.Word)
+                if (KurmanjiTextUtility.WordsEqual(hint.Word, WordHint.Word))
                 {
                     SetHintedLetters(hint.LetterRevealed);
                     return;
@@ -139,7 +139,6 @@ namespace DTT.WordConnect.Demo
                     _letterTiles[i].IsHinted = true;
                     if(_letterTiles[i].gameObject.activeInHierarchy)
                     {
-                        Debug.Log(_letterTiles[i].gameObject.activeInHierarchy);
                         _letterTiles[i].AnimateColors(_gridManager.PerWordAnimationDuration / _letterTiles.Count);
                         _letterTiles[i].AnimateLetterCompletion(_gridManager.PerWordAnimationDuration, 0f);
                     }
@@ -157,7 +156,7 @@ namespace DTT.WordConnect.Demo
         /// <param name="state">The updated game state.</param>
         private void CheckIfWordFound(WordConnectState state)
         {
-            if (state.CorrectlyAddedWords.Contains(WordHint.Word, StringComparer.OrdinalIgnoreCase) && !_isFound)
+            if (state.CorrectlyAddedWords.Any(word => KurmanjiTextUtility.WordsEqual(word, WordHint.Word)) && !_isFound)
             {
                 // Set state and update all letter tiles to visualize the word being found.
                 _isFound = true;

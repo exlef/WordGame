@@ -106,8 +106,8 @@ namespace DTT.MinigameBase.UI
         /// </summary>
         public void SetTitleToPaused()
         {
-            _titleText.text = "GAME PAUSED";
-            _titleBackdropText.text = "GAME PAUSED";
+            _titleText.text = "LÎSTIK HAT RAWESTANDIN";
+            _titleBackdropText.text = "LÎSTIK HAT RAWESTANDIN";
         }
 
         /// <summary>
@@ -115,8 +115,8 @@ namespace DTT.MinigameBase.UI
         /// </summary>
         public void SetTitleToFinished()
         {
-            _titleText.text = "GAME FINISHED";
-            _titleBackdropText.text = "GAME FINISHED";
+            _titleText.text = "LÎSTIK QEDIYA";
+            _titleBackdropText.text = "LÎSTIK QEDIYA";
         }
 
         /// <summary>

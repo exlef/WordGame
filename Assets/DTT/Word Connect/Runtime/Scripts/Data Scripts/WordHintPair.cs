@@ -28,6 +28,9 @@ using UnityEngine;
         {
             if (Word.IsNullOrEmpty())
                 Word = this.name;
+
+            Word = KurmanjiTextUtility.NormalizeWord(Word);
+            Hint = KurmanjiTextUtility.NormalizeDisplayText(Hint);
         }
     }
 }

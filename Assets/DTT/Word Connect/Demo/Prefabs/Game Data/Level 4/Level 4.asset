@@ -59,7 +59,6 @@ MonoBehaviour:
     - {x: 0, y: 0}
     - {x: 1, y: 0}
     - {x: 2, y: 0}
-    - {x: 3, y: 0}
     <InfluencedPositions>k__BackingField:
     - {x: 0, y: 1}
     - {x: 0, y: -1}
@@ -68,216 +67,101 @@ MonoBehaviour:
     - {x: 1, y: -1}
     - {x: 2, y: 1}
     - {x: 2, y: -1}
-    - {x: 3, y: 1}
-    - {x: 3, y: -1}
-    - {x: 4, y: 0}
+    - {x: 3, y: 0}
     <WordHintPair>k__BackingField: {fileID: 11400000, guid: 6a241467582bc44419d45eb3f7f4e58a, type: 2}
-  - <OriginPosition>k__BackingField: {x: 0, y: 3}
+  - <OriginPosition>k__BackingField: {x: 1, y: 2}
     <IsDown>k__BackingField: 1
     <OccupiedPositions>k__BackingField:
-    - {x: 0, y: 3}
-    - {x: 0, y: 2}
-    - {x: 0, y: 1}
-    - {x: 0, y: 0}
-    <InfluencedPositions>k__BackingField:
-    - {x: -1, y: 3}
-    - {x: 1, y: 3}
-    - {x: 0, y: 4}
-    - {x: -1, y: 2}
     - {x: 1, y: 2}
-    - {x: -1, y: 1}
     - {x: 1, y: 1}
-    - {x: -1, y: 0}
     - {x: 1, y: 0}
-    - {x: 0, y: -1}
-    <WordHintPair>k__BackingField: {fileID: 11400000, guid: 7528dae7001449c458c20d7a4982a1a3, type: 2}
-  - <OriginPosition>k__BackingField: {x: 2, y: 2}
-    <IsDown>k__BackingField: 1
-    <OccupiedPositions>k__BackingField:
+    <InfluencedPositions>k__BackingField:
+    - {x: 0, y: 2}
     - {x: 2, y: 2}
-    - {x: 2, y: 1}
-    - {x: 2, y: 0}
-    - {x: 2, y: -1}
-    <InfluencedPositions>k__BackingField:
-    - {x: 1, y: 2}
-    - {x: 3, y: 2}
-    - {x: 2, y: 3}
-    - {x: 1, y: 1}
-    - {x: 3, y: 1}
-    - {x: 1, y: 0}
-    - {x: 3, y: 0}
-    - {x: 1, y: -1}
-    - {x: 3, y: -1}
-    - {x: 2, y: -2}
-    <WordHintPair>k__BackingField: {fileID: 11400000, guid: 7ca91498027aa1a409e9049464753cec, type: 2}
-  - <OriginPosition>k__BackingField: {x: -2, y: 3}
-    <IsDown>k__BackingField: 0
-    <OccupiedPositions>k__BackingField:
-    - {x: -2, y: 3}
-    - {x: -1, y: 3}
-    - {x: 0, y: 3}
-    <InfluencedPositions>k__BackingField:
-    - {x: -2, y: 4}
-    - {x: -2, y: 2}
-    - {x: -3, y: 3}
-    - {x: -1, y: 4}
-    - {x: -1, y: 2}
-    - {x: 0, y: 4}
-    - {x: 0, y: 2}
     - {x: 1, y: 3}
-    <WordHintPair>k__BackingField: {fileID: 11400000, guid: 1d8fb69248cc6564a9f16f1077d7e8ad, type: 2}
-  - <OriginPosition>k__BackingField: {x: -2, y: 3}
-    <IsDown>k__BackingField: 1
-    <OccupiedPositions>k__BackingField:
-    - {x: -2, y: 3}
-    - {x: -2, y: 2}
-    - {x: -2, y: 1}
-    - {x: -2, y: 0}
-    <InfluencedPositions>k__BackingField:
-    - {x: -3, y: 3}
-    - {x: -1, y: 3}
-    - {x: -2, y: 4}
-    - {x: -3, y: 2}
-    - {x: -1, y: 2}
-    - {x: -3, y: 1}
-    - {x: -1, y: 1}
-    - {x: -3, y: 0}
-    - {x: -1, y: 0}
-    - {x: -2, y: -1}
-    <WordHintPair>k__BackingField: {fileID: 11400000, guid: 3f729e9a4f042d64faee713366b4baa1, type: 2}
-  - <OriginPosition>k__BackingField: {x: -8, y: 0}
+    - {x: 0, y: 1}
+    - {x: 2, y: 1}
+    - {x: 0, y: 0}
+    - {x: 2, y: 0}
+    - {x: 1, y: -1}
+    <WordHintPair>k__BackingField: {fileID: 11400000, guid: 3b38eaffb5f80b14192f013c2ba66c86, type: 2}
+  - <OriginPosition>k__BackingField: {x: 1, y: 2}
     <IsDown>k__BackingField: 0
     <OccupiedPositions>k__BackingField:
-    - {x: -8, y: 0}
-    - {x: -7, y: 0}
-    - {x: -6, y: 0}
-    - {x: -5, y: 0}
-    - {x: -4, y: 0}
-    - {x: -3, y: 0}
-    - {x: -2, y: 0}
+    - {x: 1, y: 2}
+    - {x: 2, y: 2}
+    - {x: 3, y: 2}
     <InfluencedPositions>k__BackingField:
-    - {x: -8, y: 1}
-    - {x: -8, y: -1}
-    - {x: -9, y: 0}
-    - {x: -7, y: 1}
-    - {x: -7, y: -1}
-    - {x: -6, y: 1}
-    - {x: -6, y: -1}
-    - {x: -5, y: 1}
-    - {x: -5, y: -1}
-    - {x: -4, y: 1}
-    - {x: -4, y: -1}
-    - {x: -3, y: 1}
-    - {x: -3, y: -1}
-    - {x: -2, y: 1}
-    - {x: -2, y: -1}
-    - {x: -1, y: 0}
-    <WordHintPair>k__BackingField: {fileID: 11400000, guid: fbf233f2f7cfc8d4c8ddb288818c0c4b, type: 2}
-  - <OriginPosition>k__BackingField: {x: -8, y: 1}
+    - {x: 1, y: 3}
+    - {x: 1, y: 1}
+    - {x: 0, y: 2}
+    - {x: 2, y: 3}
+    - {x: 2, y: 1}
+    - {x: 3, y: 3}
+    - {x: 3, y: 1}
+    - {x: 4, y: 2}
+    <WordHintPair>k__BackingField: {fileID: 11400000, guid: 3f729e9a4f042d64faee713366b4baa1, type: 2}
+  - <OriginPosition>k__BackingField: {x: 3, y: 4}
     <IsDown>k__BackingField: 1
     <OccupiedPositions>k__BackingField:
-    - {x: -8, y: 1}
-    - {x: -8, y: 0}
-    - {x: -8, y: -1}
-    - {x: -8, y: -2}
-    - {x: -8, y: -3}
+    - {x: 3, y: 4}
+    - {x: 3, y: 3}
+    - {x: 3, y: 2}
     <InfluencedPositions>k__BackingField:
-    - {x: -9, y: 1}
-    - {x: -7, y: 1}
-    - {x: -8, y: 2}
-    - {x: -9, y: 0}
-    - {x: -7, y: 0}
-    - {x: -9, y: -1}
-    - {x: -7, y: -1}
-    - {x: -9, y: -2}
-    - {x: -7, y: -2}
-    - {x: -9, y: -3}
-    - {x: -7, y: -3}
-    - {x: -8, y: -4}
-    <WordHintPair>k__BackingField: {fileID: 11400000, guid: 3b38eaffb5f80b14192f013c2ba66c86, type: 2}
-  _gridWidth: 12
+    - {x: 2, y: 4}
+    - {x: 4, y: 4}
+    - {x: 3, y: 5}
+    - {x: 2, y: 3}
+    - {x: 4, y: 3}
+    - {x: 2, y: 2}
+    - {x: 4, y: 2}
+    - {x: 3, y: 1}
+    <WordHintPair>k__BackingField: {fileID: 11400000, guid: 7528dae7001449c458c20d7a4982a1a3, type: 2}
+  - <OriginPosition>k__BackingField: {x: 3, y: 4}
+    <IsDown>k__BackingField: 0
+    <OccupiedPositions>k__BackingField:
+    - {x: 3, y: 4}
+    - {x: 4, y: 4}
+    - {x: 5, y: 4}
+    <InfluencedPositions>k__BackingField:
+    - {x: 3, y: 5}
+    - {x: 3, y: 3}
+    - {x: 2, y: 4}
+    - {x: 4, y: 5}
+    - {x: 4, y: 3}
+    - {x: 5, y: 5}
+    - {x: 5, y: 3}
+    - {x: 6, y: 4}
+    <WordHintPair>k__BackingField: {fileID: 11400000, guid: 1d8fb69248cc6564a9f16f1077d7e8ad, type: 2}
+  _gridWidth: 6
   _flattenedLetterLayout:
   - 
   - 
-  - 
-  - 
-  - 
   - $
-  - m
-  - e
-  - t
-  - $
-  - $
-  - 
-  - $
-  - 
-  - 
-  - 
-  - 
-  - $
-  - e
-  - $
-  - e
-  - $
-  - t
-  - $
-  - m
-  - $
-  - $
-  - $
-  - $
-  - $
+  - p
+  - i
   - r
-  - $
-  - r
-  - $
-  - r
-  - $
-  - e
-  - x
-  - t
-  - r
-  - e
-  - m
-  - e
-  - $
-  - m
-  - e
-  - e
-  - t
-  - t
-  - $
-  - $
-  - $
-  - $
-  - $
-  - $
   - 
   - $
   - $
-  - e
+  - î
   - $
-  - e
   - $
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
   - $
-  - 
+  - s
+  - î
   - r
   - $
   - 
+  - $
+  - p
+  - $
+  - $
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - ş
+  - î
+  - r
+  - $
   - 
   - 

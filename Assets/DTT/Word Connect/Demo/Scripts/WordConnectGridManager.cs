@@ -347,7 +347,7 @@ namespace DTT.WordConnect.Demo
                     LetterTile letterTile = tile.GetComponent<LetterTile>();
                     letterTile.UpdateColors();
                     letterTile.CompletionAnimationScale = AnimationTileScale;
-                    letterTile.LetterDisplay.text = wordVector.WordHintPair.Word[i].ToString().ToUpper();
+                    letterTile.LetterDisplay.text = KurmanjiTextUtility.ToDisplayUpper(wordVector.WordHintPair.Word[i].ToString());
 
                     // Save the letter tile class for quick usage later on and add to the managing word tile.
                     letterTiles.Add(letterTile);
@@ -450,7 +450,7 @@ namespace DTT.WordConnect.Demo
                         letterTile.BackgroundImage.color = Color.white;
 
                         // Set letter value of the tile.
-                        letterTile.LetterDisplay.text = _gameLayout.GridLetters[x, y].ToString().ToUpper();
+                        letterTile.LetterDisplay.text = KurmanjiTextUtility.ToDisplayUpper(_gameLayout.GridLetters[x, y].ToString());
                     }
                 }
             }

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: da65392cfacad6b4a96ccab254c9d166, type: 3}
-  m_Name: ace
+  m_Name: nû
   m_EditorClassIdentifier: 
-  <Word>k__BackingField: ace
-  <Hint>k__BackingField: 
+  <Word>k__BackingField: nû
+  <Hint>k__BackingField: Ne kevn.

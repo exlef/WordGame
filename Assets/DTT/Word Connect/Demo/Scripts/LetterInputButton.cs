@@ -123,7 +123,7 @@ namespace DTT.WordConnect.Demo
         /// Sets the text value to a single letter.
         /// </summary>
         /// <param name="letter">The letter to show.</param>
-        public void SetInputLetterText(char letter) => _text.text = letter.ToString().ToUpper();
+        public void SetInputLetterText(char letter) => _text.text = KurmanjiTextUtility.ToDisplayUpper(letter.ToString());
 
         /// <summary>
         /// Starts the animation to scale the background image.

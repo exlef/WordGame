@@ -94,7 +94,12 @@ namespace DTT.WordConnect
         /// Sets the words which are in the game.
         /// </summary>
         /// <param name="availableWords">List of strings of all words in the game.</param>
-        public void SetAvailableWords(List<string> availableWords) => WordsInCrossword = availableWords;
+        public void SetAvailableWords(List<string> availableWords)
+        {
+            WordsInCrossword = new List<string>();
+            foreach (string word in availableWords)
+                WordsInCrossword.Add(KurmanjiTextUtility.NormalizeWord(word));
+        }
 
         /// <summary>
         /// Sets the balace of all hint options available in this game. (letter hint, word hint and descriptive hint)
@@ -164,9 +169,9 @@ namespace DTT.WordConnect
         public void RemoveHintOption(string word)
         {
             // Find the hint with the given word and remove it from the list.
-            HintOption hint = HintOptions.Find(x => x.Word == word);
+            HintOption hint = HintOptions.Find(x => KurmanjiTextUtility.WordsEqual(x.Word, word));
             HintOptions.Remove(hint);
-            if (CurrentRevealedDescriptiveHint != null && CurrentRevealedDescriptiveHint.Word == word) 
+            if (CurrentRevealedDescriptiveHint != null && KurmanjiTextUtility.WordsEqual(CurrentRevealedDescriptiveHint.Word, word))
                 CurrentRevealedDescriptiveHint = null;
         }
 
@@ -221,7 +226,7 @@ namespace DTT.WordConnect
         /// Adds a word to the found word list.
         /// </summary>
         /// <param name="foundWord">The word that has been found.</param>
-        public void AddFoundWord(string foundWord) => CorrectlyAddedWords.Add(foundWord);
+        public void AddFoundWord(string foundWord) => CorrectlyAddedWords.Add(KurmanjiTextUtility.NormalizeWord(foundWord));
 
         /// <summary>
         /// Clears the input sequence.
@@ -236,10 +241,10 @@ namespace DTT.WordConnect
         {
             string sequence = string.Empty;
 
-            foreach (LetterInput letterInput in CurrentWordInput) 
+            foreach (LetterInput letterInput in CurrentWordInput)
                 sequence += letterInput.letter;
 
-            return sequence.ToUpper();
+            return KurmanjiTextUtility.ToDisplayUpper(sequence);
         }
     }
 }

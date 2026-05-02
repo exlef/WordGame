@@ -238,7 +238,7 @@ namespace DTT.WordConnect
         public bool LetterHasOverlap(string word, int letterIndex)
         {
             // Get the WordVector object that represents the given word variable.
-            WordVector wordVectorToCheck = _wordVectors.Find(wordVector => wordVector.WordHintPair.Word.ToLower() == word.ToLower());
+            WordVector wordVectorToCheck = _wordVectors.Find(wordVector => KurmanjiTextUtility.WordsEqual(wordVector.WordHintPair.Word, word));
 
             // Get the position the given letterIndex occupies.
             Vector2Int letterPosition = wordVectorToCheck.OccupiedPositions[letterIndex];
@@ -246,7 +246,7 @@ namespace DTT.WordConnect
             foreach (WordVector wordVector in WordVectors)
             {
                 // Skip the wordVector we are checking for.
-                if (wordVector.WordHintPair.Word == wordVectorToCheck.WordHintPair.Word) continue;
+                if (KurmanjiTextUtility.WordsEqual(wordVector.WordHintPair.Word, wordVectorToCheck.WordHintPair.Word)) continue;
                 // If any other words occupy the same position there is overlap.
                 if (wordVector.OccupiedPositions.Contains(letterPosition)) return true;
 
@@ -262,7 +262,7 @@ namespace DTT.WordConnect
         public (string, int) GetLetterOverlap(string word, int letterIndex)
         {
             // Get the WordVector object that represents the given word variable.
-            WordVector wordVectorToCheck = _wordVectors.Find(wordVector => wordVector.WordHintPair.Word.ToLower() == word.ToLower());
+            WordVector wordVectorToCheck = _wordVectors.Find(wordVector => KurmanjiTextUtility.WordsEqual(wordVector.WordHintPair.Word, word));
             // Calculate all positions the WordVector occupies in the grid.
             _wordVectors.ForEach(wordVector => wordVector.CalculatePositions());
 
@@ -271,7 +271,7 @@ namespace DTT.WordConnect
             foreach (WordVector wordVector in WordVectors)
             {
                 // Skip the wordVector we are checking for.
-                if (wordVector.WordHintPair.Word == wordVectorToCheck.WordHintPair.Word)
+                if (KurmanjiTextUtility.WordsEqual(wordVector.WordHintPair.Word, wordVectorToCheck.WordHintPair.Word))
                     continue;
 
                 // If any other words occupy the same position there is overlap.

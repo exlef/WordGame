@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: da65392cfacad6b4a96ccab254c9d166, type: 3}
-  m_Name: nap
+  m_Name: dar
   m_EditorClassIdentifier: 
-  <Word>k__BackingField: nap
-  <Hint>k__BackingField: 
+  <Word>k__BackingField: dar
+  <Hint>k__BackingField: Tişta mezin bi çiqil û pelan.

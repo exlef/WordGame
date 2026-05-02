@@ -153,7 +153,7 @@ namespace DTT.WordConnect.Demo
             }
 
             // If the current hinted word does not match the one being displayed, rebuild the UI and enable it. 
-            if (state.CurrentRevealedDescriptiveHint.Word != _currentWordHinted)
+            if (!KurmanjiTextUtility.WordsEqual(state.CurrentRevealedDescriptiveHint.Word, _currentWordHinted))
             {
                 // Set the text field to the revealed hint description.
                 _descriptionTextField.text = state.CurrentRevealedDescriptiveHint.WordDescription;
@@ -287,7 +287,7 @@ namespace DTT.WordConnect.Demo
         private WordTile GetHintedWordTile(List<WordTile> wordTiles)
         {
             string hintedWord = WordConnectManager.Instance.WordConnectState.CurrentRevealedDescriptiveHint.Word;
-            return wordTiles.Find(tile => tile.WordHint.Word == hintedWord);
+            return wordTiles.Find(tile => KurmanjiTextUtility.WordsEqual(tile.WordHint.Word, hintedWord));
         }
 
         /// <summary>

@@ -8,11 +8,22 @@ This file captures the current working map of the Unity project so future change
 - Product name: `WordGame`
 - Current repository branch at time of review: `main`
 - Main package: DTT Word Connect, version `1.0.2`
+- Current language target: Kurmanji Kurdish using standard Latin/Hawar orthography
+- Primary runtime font: `Assets/Fonts/Patrick_Hand/PatrickHand-Regular.ttf`
 - Main enabled build scenes:
   - `Assets/DTT/Minigame Base/Assets/Scenes/DTT Level Select.unity`
   - `Assets/DTT/Word Connect/Demo/Scenes/Demo - Portrait.unity`
 
 The project is primarily a Unity Asset Store style package import. Most source code and assets live under `Assets/DTT`, with the Word Connect gameplay package depending on DTT Minigame Base, Runtime Utilities, Editor Utilities, Publishing Tools, Minigame Advertisements, and DTTween.
+
+## Kurmanji Migration Notes
+
+- Player-facing legacy `UnityEngine.UI.Text` references in the Word Connect demo scenes/prefabs and Minigame Base UI scenes/prefabs are pointed at Patrick Hand Regular.
+- Kurmanji text comparison is centralized in `Assets/DTT/Word Connect/Runtime/Scripts/KurmanjiTextUtility.cs`.
+- Runtime word matching normalizes to Unicode Form C and invariant lowercase before comparison.
+- Runtime display uppercasing uses invariant Unicode casing so `ç ê î ş û` display consistently as `Ç Ê Î Ş Û`.
+- The five demo `Level X.asset` configs still use the existing ScriptableObject architecture, but their dictionaries, word assets, word vectors, and flattened editor previews now contain Kurmanji starter content.
+- Starter words and clues are prototype-quality and should be reviewed by a fluent Kurmanji speaker before release.
 
 ## Main Runtime Flow
 
@@ -48,6 +59,9 @@ The broad sequence is:
 
 - `Assets/DTT/Word Connect/Runtime/Scripts/ColorTheme.cs`
   - ScriptableObject color profile used by the demo UI.
+
+- `Assets/DTT/Word Connect/Runtime/Scripts/KurmanjiTextUtility.cs`
+  - Normalizes Kurmanji words and display text for matching, hints, grid letters, and input letters.
 
 - `Assets/DTT/Word Connect/Runtime/Scripts/Data Scripts/WordConnectState.cs`
   - Mutable per-game state: current input, found words, hint balances, hint options, score, streak.
@@ -222,14 +236,12 @@ Use these files as the likely starting points:
 
 These are pre-existing items noticed during review. They are not necessarily blocking, but worth remembering:
 
-- `WordConnectManager.CheckGameComplete` appears to mutate `WordConnectState.WordsInCrossword` by assigning the list reference and removing found words from it.
 - `ColorThemeController` subscribes and unsubscribes using lambda expressions, so the unsubscribe will not remove the original delegate.
 - `LevelSelect.OnDisable` uses `+=` instead of `-=` for `_pagination.PageChanged`.
-- `WordTile.SetHintedLetters` contains a stray `Debug.Log`.
 - `MobileInput.GetPointerPosition` returns `Input.mousePosition`, not the current touch position.
 - `WordsLeftUI` counts only correctly added words, not completely hinted words.
 - There are no automated tests in the repository at the time of review.
 
 ## Verification Notes
 
-This overview was produced by reading the project files directly. Unity was not launched and no compile or play mode test was run during the initial review.
+This overview was first produced by reading the project files directly. After the Kurmanji migration, Unity `2022.3.72f1` was run in batch mode and exited successfully with no C# compiler errors in `/tmp/wordgame-unity.log`.
