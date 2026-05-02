@@ -9466,6 +9466,7 @@ GameObject:
   - component: {fileID: 347461776}
   - component: {fileID: 347461775}
   - component: {fileID: 347461774}
+  - component: {fileID: 910000000000000002}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -61527,3 +61528,16 @@ SceneRoots:
   - {fileID: 593333365}
   - {fileID: 347461777}
   - {fileID: 665044209}
+--- !u!114 &910000000000000002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347461773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a18ce9c3b4347d0b9254100649a664d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameConfig: {fileID: 11400000, guid: e78e4fde0ecd41f38fce2ef12ca4eb50, type: 2}

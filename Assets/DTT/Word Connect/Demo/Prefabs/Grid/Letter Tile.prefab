@@ -166,6 +166,7 @@ GameObject:
   - component: {fileID: 5704419692201055572}
   - component: {fileID: 7652326476237830085}
   - component: {fileID: 722464119337075952}
+  - component: {fileID: 910000000000000004}
   m_Layer: 5
   m_Name: Letter Tile
   m_TagString: Untagged
@@ -229,3 +230,16 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &910000000000000004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8549814042452988519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a18ce9c3b4347d0b9254100649a664d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameConfig: {fileID: 11400000, guid: e78e4fde0ecd41f38fce2ef12ca4eb50, type: 2}

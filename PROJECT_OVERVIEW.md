@@ -9,7 +9,8 @@ This file captures the current working map of the Unity project so future change
 - Current repository branch at time of review: `main`
 - Main package: DTT Word Connect, version `1.0.2`
 - Current language target: Kurmanji Kurdish using standard Latin/Hawar orthography
-- Primary runtime font: `Assets/Fonts/Patrick_Hand/PatrickHand-Regular.ttf`
+- Default runtime font: `Assets/Fonts/Patrick_Hand/PatrickHand-Regular.ttf`
+- Runtime font override asset: `Assets/WordGame/GameConfig.asset`
 - Main enabled build scenes:
   - `Assets/DTT/Minigame Base/Assets/Scenes/DTT Level Select.unity`
   - `Assets/DTT/Word Connect/Demo/Scenes/Demo - Portrait.unity`
@@ -19,6 +20,7 @@ The project is primarily a Unity Asset Store style package import. Most source c
 ## Kurmanji Migration Notes
 
 - Player-facing legacy `UnityEngine.UI.Text` references in the Word Connect demo scenes/prefabs and Minigame Base UI scenes/prefabs are pointed at Patrick Hand Regular.
+- `GameConfig.asset` can override player-facing legacy `UnityEngine.UI.Text` fonts when play mode starts.
 - Kurmanji text comparison is centralized in `Assets/DTT/Word Connect/Runtime/Scripts/KurmanjiTextUtility.cs`.
 - Runtime word matching normalizes to Unicode Form C and invariant lowercase before comparison.
 - Runtime display uppercasing uses invariant Unicode casing so `ç ê î ş û` display consistently as `Ç Ê Î Ş Û`.
@@ -62,6 +64,12 @@ The broad sequence is:
 
 - `Assets/DTT/Word Connect/Runtime/Scripts/KurmanjiTextUtility.cs`
   - Normalizes Kurmanji words and display text for matching, hints, grid letters, and input letters.
+
+- `Assets/WordGame/Scripts/GameConfig.cs`
+  - Project-level ScriptableObject for simple game-wide settings. It currently exposes one global font.
+
+- `Assets/WordGame/Scripts/GameConfigFontApplier.cs`
+  - One-shot play-mode font applier for legacy `Text` components under a scene/prefab root.
 
 - `Assets/DTT/Word Connect/Runtime/Scripts/Data Scripts/WordConnectState.cs`
   - Mutable per-game state: current input, found words, hint balances, hint options, score, streak.
@@ -221,6 +229,10 @@ Use these files as the likely starting points:
   - `Assets/DTT/Word Connect/Demo/Scripts/WordTile.cs`
   - `Assets/DTT/Word Connect/Demo/Scripts/ColorThemeController.cs`
   - `Color Theme.asset` files
+
+- Change the global test font:
+  - Edit `Assets/WordGame/GameConfig.asset`
+  - Assign `regularFont` and `boldFont` to Patrick Hand, Baloo2 static fonts, or another imported legacy `Font`
 
 - Change level progression:
   - `Assets/DTT/Minigame Base/Runtime/Level Select`
