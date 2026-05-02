@@ -1,0 +1,19 @@
+{
+    "name": "DTT.WordConnect.Demo",
+    "rootNamespace": "",
+    "references": [
+        "GUID:40110409d6f32d94c8a49de52995a651",
+        "GUID:81b21cb398672b14694d4899e3ed9a91",
+        "GUID:30d4d625b0cc0c1438d192a7f3e683ca",
+        "GUID:75469ad4d38634e559750d17036d5f7c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

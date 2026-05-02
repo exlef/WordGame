@@ -1,0 +1,163 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d991669cd30d37c4c8e2ab4a95363015, type: 3}
+  m_Name: Level 3
+  m_EditorClassIdentifier: 
+  _gameName: Level 3
+  _wordHintsAvailable: 10
+  _letterHintsAvailable: 100
+  _descriptionHintsAvailable: 0
+  _dictionaryAsset: {fileID: 11400000, guid: 7af88f2b5d8a3564cb342398b23c7484, type: 2}
+  _completionPointTimeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 69
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.25
+      value: 1
+      inSlope: -0
+      outSlope: -1.3333334
+      tangentMode: 69
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -1.3333334
+      outSlope: 0
+      tangentMode: 69
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _expectedTimeCompletion: 120
+  _maxBonusTimeScore: 500
+  _wordVectors:
+  - <OriginPosition>k__BackingField: {x: 0, y: 0}
+    <IsDown>k__BackingField: 0
+    <OccupiedPositions>k__BackingField:
+    - {x: 0, y: 0}
+    - {x: 1, y: 0}
+    - {x: 2, y: 0}
+    <InfluencedPositions>k__BackingField:
+    - {x: 0, y: 1}
+    - {x: 0, y: -1}
+    - {x: -1, y: 0}
+    - {x: 1, y: 1}
+    - {x: 1, y: -1}
+    - {x: 2, y: 1}
+    - {x: 2, y: -1}
+    - {x: 3, y: 0}
+    <WordHintPair>k__BackingField: {fileID: 11400000, guid: b8df822bec03d15408917bce319a67ee, type: 2}
+  - <OriginPosition>k__BackingField: {x: 0, y: 3}
+    <IsDown>k__BackingField: 1
+    <OccupiedPositions>k__BackingField:
+    - {x: 0, y: 3}
+    - {x: 0, y: 2}
+    - {x: 0, y: 1}
+    - {x: 0, y: 0}
+    <InfluencedPositions>k__BackingField:
+    - {x: -1, y: 3}
+    - {x: 1, y: 3}
+    - {x: 0, y: 4}
+    - {x: -1, y: 2}
+    - {x: 1, y: 2}
+    - {x: -1, y: 1}
+    - {x: 1, y: 1}
+    - {x: -1, y: 0}
+    - {x: 1, y: 0}
+    - {x: 0, y: -1}
+    <WordHintPair>k__BackingField: {fileID: 11400000, guid: 553d6544917f0d4428314bc4c371d8c0, type: 2}
+  - <OriginPosition>k__BackingField: {x: 2, y: 3}
+    <IsDown>k__BackingField: 1
+    <OccupiedPositions>k__BackingField:
+    - {x: 2, y: 3}
+    - {x: 2, y: 2}
+    - {x: 2, y: 1}
+    - {x: 2, y: 0}
+    <InfluencedPositions>k__BackingField:
+    - {x: 1, y: 3}
+    - {x: 3, y: 3}
+    - {x: 2, y: 4}
+    - {x: 1, y: 2}
+    - {x: 3, y: 2}
+    - {x: 1, y: 1}
+    - {x: 3, y: 1}
+    - {x: 1, y: 0}
+    - {x: 3, y: 0}
+    - {x: 2, y: -1}
+    <WordHintPair>k__BackingField: {fileID: 11400000, guid: c20c9960d467f3a4aa809b55726e71e0, type: 2}
+  - <OriginPosition>k__BackingField: {x: -2, y: 2}
+    <IsDown>k__BackingField: 0
+    <OccupiedPositions>k__BackingField:
+    - {x: -2, y: 2}
+    - {x: -1, y: 2}
+    - {x: 0, y: 2}
+    <InfluencedPositions>k__BackingField:
+    - {x: -2, y: 3}
+    - {x: -2, y: 1}
+    - {x: -3, y: 2}
+    - {x: -1, y: 3}
+    - {x: -1, y: 1}
+    - {x: 0, y: 3}
+    - {x: 0, y: 1}
+    - {x: 1, y: 2}
+    <WordHintPair>k__BackingField: {fileID: 11400000, guid: ed0667017557e1f4180482e782b28ce6, type: 2}
+  - <OriginPosition>k__BackingField: {x: -2, y: 2}
+    <IsDown>k__BackingField: 1
+    <OccupiedPositions>k__BackingField:
+    - {x: -2, y: 2}
+    - {x: -2, y: 1}
+    - {x: -2, y: 0}
+    <InfluencedPositions>k__BackingField:
+    - {x: -3, y: 2}
+    - {x: -1, y: 2}
+    - {x: -2, y: 3}
+    - {x: -3, y: 1}
+    - {x: -1, y: 1}
+    - {x: -3, y: 0}
+    - {x: -1, y: 0}
+    - {x: -2, y: -1}
+    <WordHintPair>k__BackingField: {fileID: 11400000, guid: 3dce2e54b1fb0fe479389a0767497dea, type: 2}
+  _gridWidth: 5
+  _flattenedLetterLayout:
+  - $
+  - $
+  - s
+  - $
+  - w
+  - s
+  - e
+  - t
+  - $
+  - e
+  - e
+  - $
+  - e
+  - $
+  - s
+  - w
+  - $
+  - w
+  - e
+  - t

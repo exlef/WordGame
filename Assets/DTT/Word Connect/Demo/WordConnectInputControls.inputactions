@@ -1,0 +1,35 @@
+{
+    "version": 1,
+    "name": "WordConnectInputControls",
+    "maps": [
+        {
+            "name": "DesktopInput",
+            "id": "53d0dada-5dd5-4976-8a72-e153be35e828",
+            "actions": [
+                {
+                    "name": "MouseButtonDown",
+                    "type": "Button",
+                    "id": "1ce7ab3c-4bb2-406b-8259-c5b581241079",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "f23f454e-2d32-43c1-abca-c4423bbd32c9",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MouseButtonDown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

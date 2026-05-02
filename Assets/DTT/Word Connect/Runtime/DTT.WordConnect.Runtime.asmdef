@@ -1,0 +1,17 @@
+{
+    "name": "DTT.WordConnect.Runtime",
+    "rootNamespace": "",
+    "references": [
+        "GUID:1711cb30f577ba1498364a78a6873853",
+        "GUID:40110409d6f32d94c8a49de52995a651"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2e907acc0baeeb45a54a0d1fd6ecb45, type: 3}
+  m_Name: Word Dictionary
+  m_EditorClassIdentifier: 
+  <DictionaryName>k__BackingField: Word Dictionary
+  <WordHintPairs>k__BackingField:
+  - {fileID: 11400000, guid: 1a3d43932ad6ace4394a5fd980e01138, type: 2}
+  - {fileID: 11400000, guid: b3964ab18b86ef14cb920a16b330a952, type: 2}
+  - {fileID: 11400000, guid: cb2e55b2d92076c4789ec9703fe0d297, type: 2}
+  - {fileID: 11400000, guid: 37ee712b18502e544b7a5854848830ca, type: 2}
+  - {fileID: 11400000, guid: d966a577f2d906247911271ba947f673, type: 2}
+  - {fileID: 11400000, guid: 0b0edb865ebdc3a4d834f252303a811d, type: 2}
+  - {fileID: 11400000, guid: 233e13aa855eeec41860232df1eeb9c5, type: 2}
+  - {fileID: 11400000, guid: 94e89fb7665363743bbfbdb543ef41e4, type: 2}
+  - {fileID: 11400000, guid: c683b35fa7253414aa3a93e3ba334e95, type: 2}
+  - {fileID: 11400000, guid: dd55c44cd7efb7f419337380d0ad0013, type: 2}
+  - {fileID: 11400000, guid: 8793df6a407559149aafab40bec035ea, type: 2}
+  - {fileID: 11400000, guid: a34433fa6d84a9443921a335e1809f1d, type: 2}
+  - {fileID: 11400000, guid: c7458f46895f58d4888a1232aaf34906, type: 2}
+  - {fileID: 11400000, guid: 31706d5400b8ea849983364909787c21, type: 2}
+  - {fileID: 11400000, guid: 2e7d20d99e7d04542ac57ff5c9386580, type: 2}
+  - {fileID: 11400000, guid: 73101c407d7e74e4cb1168416bb7b869, type: 2}

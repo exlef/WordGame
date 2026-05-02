@@ -1,0 +1,283 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d991669cd30d37c4c8e2ab4a95363015, type: 3}
+  m_Name: Level 4
+  m_EditorClassIdentifier: 
+  _gameName: Level 4
+  _wordHintsAvailable: 1
+  _letterHintsAvailable: 2
+  _descriptionHintsAvailable: 0
+  _dictionaryAsset: {fileID: 11400000, guid: 0c4e239fd422b9845871875411ee510f, type: 2}
+  _completionPointTimeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 69
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.25
+      value: 1
+      inSlope: -0
+      outSlope: -1.3333334
+      tangentMode: 69
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -1.3333334
+      outSlope: 0
+      tangentMode: 69
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _expectedTimeCompletion: 180
+  _maxBonusTimeScore: 500
+  _wordVectors:
+  - <OriginPosition>k__BackingField: {x: 0, y: 0}
+    <IsDown>k__BackingField: 0
+    <OccupiedPositions>k__BackingField:
+    - {x: 0, y: 0}
+    - {x: 1, y: 0}
+    - {x: 2, y: 0}
+    - {x: 3, y: 0}
+    <InfluencedPositions>k__BackingField:
+    - {x: 0, y: 1}
+    - {x: 0, y: -1}
+    - {x: -1, y: 0}
+    - {x: 1, y: 1}
+    - {x: 1, y: -1}
+    - {x: 2, y: 1}
+    - {x: 2, y: -1}
+    - {x: 3, y: 1}
+    - {x: 3, y: -1}
+    - {x: 4, y: 0}
+    <WordHintPair>k__BackingField: {fileID: 11400000, guid: 6a241467582bc44419d45eb3f7f4e58a, type: 2}
+  - <OriginPosition>k__BackingField: {x: 0, y: 3}
+    <IsDown>k__BackingField: 1
+    <OccupiedPositions>k__BackingField:
+    - {x: 0, y: 3}
+    - {x: 0, y: 2}
+    - {x: 0, y: 1}
+    - {x: 0, y: 0}
+    <InfluencedPositions>k__BackingField:
+    - {x: -1, y: 3}
+    - {x: 1, y: 3}
+    - {x: 0, y: 4}
+    - {x: -1, y: 2}
+    - {x: 1, y: 2}
+    - {x: -1, y: 1}
+    - {x: 1, y: 1}
+    - {x: -1, y: 0}
+    - {x: 1, y: 0}
+    - {x: 0, y: -1}
+    <WordHintPair>k__BackingField: {fileID: 11400000, guid: 7528dae7001449c458c20d7a4982a1a3, type: 2}
+  - <OriginPosition>k__BackingField: {x: 2, y: 2}
+    <IsDown>k__BackingField: 1
+    <OccupiedPositions>k__BackingField:
+    - {x: 2, y: 2}
+    - {x: 2, y: 1}
+    - {x: 2, y: 0}
+    - {x: 2, y: -1}
+    <InfluencedPositions>k__BackingField:
+    - {x: 1, y: 2}
+    - {x: 3, y: 2}
+    - {x: 2, y: 3}
+    - {x: 1, y: 1}
+    - {x: 3, y: 1}
+    - {x: 1, y: 0}
+    - {x: 3, y: 0}
+    - {x: 1, y: -1}
+    - {x: 3, y: -1}
+    - {x: 2, y: -2}
+    <WordHintPair>k__BackingField: {fileID: 11400000, guid: 7ca91498027aa1a409e9049464753cec, type: 2}
+  - <OriginPosition>k__BackingField: {x: -2, y: 3}
+    <IsDown>k__BackingField: 0
+    <OccupiedPositions>k__BackingField:
+    - {x: -2, y: 3}
+    - {x: -1, y: 3}
+    - {x: 0, y: 3}
+    <InfluencedPositions>k__BackingField:
+    - {x: -2, y: 4}
+    - {x: -2, y: 2}
+    - {x: -3, y: 3}
+    - {x: -1, y: 4}
+    - {x: -1, y: 2}
+    - {x: 0, y: 4}
+    - {x: 0, y: 2}
+    - {x: 1, y: 3}
+    <WordHintPair>k__BackingField: {fileID: 11400000, guid: 1d8fb69248cc6564a9f16f1077d7e8ad, type: 2}
+  - <OriginPosition>k__BackingField: {x: -2, y: 3}
+    <IsDown>k__BackingField: 1
+    <OccupiedPositions>k__BackingField:
+    - {x: -2, y: 3}
+    - {x: -2, y: 2}
+    - {x: -2, y: 1}
+    - {x: -2, y: 0}
+    <InfluencedPositions>k__BackingField:
+    - {x: -3, y: 3}
+    - {x: -1, y: 3}
+    - {x: -2, y: 4}
+    - {x: -3, y: 2}
+    - {x: -1, y: 2}
+    - {x: -3, y: 1}
+    - {x: -1, y: 1}
+    - {x: -3, y: 0}
+    - {x: -1, y: 0}
+    - {x: -2, y: -1}
+    <WordHintPair>k__BackingField: {fileID: 11400000, guid: 3f729e9a4f042d64faee713366b4baa1, type: 2}
+  - <OriginPosition>k__BackingField: {x: -8, y: 0}
+    <IsDown>k__BackingField: 0
+    <OccupiedPositions>k__BackingField:
+    - {x: -8, y: 0}
+    - {x: -7, y: 0}
+    - {x: -6, y: 0}
+    - {x: -5, y: 0}
+    - {x: -4, y: 0}
+    - {x: -3, y: 0}
+    - {x: -2, y: 0}
+    <InfluencedPositions>k__BackingField:
+    - {x: -8, y: 1}
+    - {x: -8, y: -1}
+    - {x: -9, y: 0}
+    - {x: -7, y: 1}
+    - {x: -7, y: -1}
+    - {x: -6, y: 1}
+    - {x: -6, y: -1}
+    - {x: -5, y: 1}
+    - {x: -5, y: -1}
+    - {x: -4, y: 1}
+    - {x: -4, y: -1}
+    - {x: -3, y: 1}
+    - {x: -3, y: -1}
+    - {x: -2, y: 1}
+    - {x: -2, y: -1}
+    - {x: -1, y: 0}
+    <WordHintPair>k__BackingField: {fileID: 11400000, guid: fbf233f2f7cfc8d4c8ddb288818c0c4b, type: 2}
+  - <OriginPosition>k__BackingField: {x: -8, y: 1}
+    <IsDown>k__BackingField: 1
+    <OccupiedPositions>k__BackingField:
+    - {x: -8, y: 1}
+    - {x: -8, y: 0}
+    - {x: -8, y: -1}
+    - {x: -8, y: -2}
+    - {x: -8, y: -3}
+    <InfluencedPositions>k__BackingField:
+    - {x: -9, y: 1}
+    - {x: -7, y: 1}
+    - {x: -8, y: 2}
+    - {x: -9, y: 0}
+    - {x: -7, y: 0}
+    - {x: -9, y: -1}
+    - {x: -7, y: -1}
+    - {x: -9, y: -2}
+    - {x: -7, y: -2}
+    - {x: -9, y: -3}
+    - {x: -7, y: -3}
+    - {x: -8, y: -4}
+    <WordHintPair>k__BackingField: {fileID: 11400000, guid: 3b38eaffb5f80b14192f013c2ba66c86, type: 2}
+  _gridWidth: 12
+  _flattenedLetterLayout:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - $
+  - m
+  - e
+  - t
+  - $
+  - $
+  - 
+  - $
+  - 
+  - 
+  - 
+  - 
+  - $
+  - e
+  - $
+  - e
+  - $
+  - t
+  - $
+  - m
+  - $
+  - $
+  - $
+  - $
+  - $
+  - r
+  - $
+  - r
+  - $
+  - r
+  - $
+  - e
+  - x
+  - t
+  - r
+  - e
+  - m
+  - e
+  - $
+  - m
+  - e
+  - e
+  - t
+  - t
+  - $
+  - $
+  - $
+  - $
+  - $
+  - $
+  - 
+  - $
+  - $
+  - e
+  - $
+  - e
+  - $
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - $
+  - 
+  - r
+  - $
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 

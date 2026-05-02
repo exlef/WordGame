@@ -1,0 +1,23 @@
+{
+    "name": "DTT.WordConnect.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:aa12e170004bf7c49a44b24dd6ee1fe3",
+        "GUID:c6a12e1e013355540ab606f758b6c505",
+        "GUID:1711cb30f577ba1498364a78a6873853",
+        "GUID:b5e078f64d95bba4a8ba03b5b4940114",
+        "GUID:6990781c97a9f1f40a819b97c1dd6584",
+        "GUID:81b21cb398672b14694d4899e3ed9a91"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

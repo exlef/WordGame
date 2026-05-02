@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2e907acc0baeeb45a54a0d1fd6ecb45, type: 3}
+  m_Name: Word Dictionary
+  m_EditorClassIdentifier: 
+  <DictionaryName>k__BackingField: 'Level 2 '
+  <WordHintPairs>k__BackingField:
+  - {fileID: 11400000, guid: 25b5b2c1fa0e8fe4da71f480c7f9ca84, type: 2}
+  - {fileID: 11400000, guid: cfdedb65edce63042b79061b1db51475, type: 2}
+  - {fileID: 11400000, guid: 733adc7ea63505a41aa45ec227fac99e, type: 2}
+  - {fileID: 11400000, guid: 6758cc1a842c03e4395d3faf18160cb8, type: 2}
+  - {fileID: 11400000, guid: 4b3a3562d7d3e4e4ab0bc75f225cc986, type: 2}

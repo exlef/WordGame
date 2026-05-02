@@ -1,0 +1,149 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d991669cd30d37c4c8e2ab4a95363015, type: 3}
+  m_Name: Level 1
+  m_EditorClassIdentifier: 
+  _gameName: Level 1
+  _colorTheme: {fileID: 11400000, guid: c0e18d198b1b16340a16d18f3b6e7546, type: 2}
+  _wordHintsAvailable: 0
+  _letterHintsAvailable: 1
+  _descriptionHintsAvailable: 100
+  _dictionaryAsset: {fileID: 11400000, guid: 8102d4789ff9c99418f1d7f1db5cc7e4, type: 2}
+  _completionPointTimeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 69
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.25
+      value: 1
+      inSlope: -0
+      outSlope: -1.3333334
+      tangentMode: 69
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -1.3333334
+      outSlope: 0
+      tangentMode: 69
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _expectedTimeCompletion: 90
+  _maxBonusTimeScore: 500
+  _wordVectors:
+  - <OriginPosition>k__BackingField: {x: 0, y: 0}
+    <IsDown>k__BackingField: 0
+    <OccupiedPositions>k__BackingField:
+    - {x: 0, y: 0}
+    - {x: 1, y: 0}
+    - {x: 2, y: 0}
+    <InfluencedPositions>k__BackingField:
+    - {x: 0, y: 1}
+    - {x: 0, y: -1}
+    - {x: -1, y: 0}
+    - {x: 1, y: 1}
+    - {x: 1, y: -1}
+    - {x: 2, y: 1}
+    - {x: 2, y: -1}
+    - {x: 3, y: 0}
+    <WordHintPair>k__BackingField: {fileID: 11400000, guid: a464b9cef9fa3bf4eae24dd289eae83a, type: 2}
+  - <OriginPosition>k__BackingField: {x: 0, y: 0}
+    <IsDown>k__BackingField: 1
+    <OccupiedPositions>k__BackingField:
+    - {x: 0, y: 0}
+    - {x: 0, y: -1}
+    - {x: 0, y: -2}
+    <InfluencedPositions>k__BackingField:
+    - {x: -1, y: 0}
+    - {x: 1, y: 0}
+    - {x: 0, y: 1}
+    - {x: -1, y: -1}
+    - {x: 1, y: -1}
+    - {x: -1, y: -2}
+    - {x: 1, y: -2}
+    - {x: 0, y: -3}
+    <WordHintPair>k__BackingField: {fileID: 11400000, guid: 66793574bc0bbed49ba5514c9db37f74, type: 2}
+  - <OriginPosition>k__BackingField: {x: 2, y: 3}
+    <IsDown>k__BackingField: 1
+    <OccupiedPositions>k__BackingField:
+    - {x: 2, y: 3}
+    - {x: 2, y: 2}
+    - {x: 2, y: 1}
+    - {x: 2, y: 0}
+    <InfluencedPositions>k__BackingField:
+    - {x: 1, y: 3}
+    - {x: 3, y: 3}
+    - {x: 2, y: 4}
+    - {x: 1, y: 2}
+    - {x: 3, y: 2}
+    - {x: 1, y: 1}
+    - {x: 3, y: 1}
+    - {x: 1, y: 0}
+    - {x: 3, y: 0}
+    - {x: 2, y: -1}
+    <WordHintPair>k__BackingField: {fileID: 11400000, guid: acf5c55856483aa4797a21b6bd90d97b, type: 2}
+  - <OriginPosition>k__BackingField: {x: 1, y: 3}
+    <IsDown>k__BackingField: 0
+    <OccupiedPositions>k__BackingField:
+    - {x: 1, y: 3}
+    - {x: 2, y: 3}
+    - {x: 3, y: 3}
+    <InfluencedPositions>k__BackingField:
+    - {x: 1, y: 4}
+    - {x: 1, y: 2}
+    - {x: 0, y: 3}
+    - {x: 2, y: 4}
+    - {x: 2, y: 2}
+    - {x: 3, y: 4}
+    - {x: 3, y: 2}
+    - {x: 4, y: 3}
+    <WordHintPair>k__BackingField: {fileID: 11400000, guid: 740190b10bd1c944f98c841701d4869f, type: 2}
+  _gridWidth: 4
+  _flattenedLetterLayout:
+  - $
+  - y
+  - e
+  - s
+  - 
+  - $
+  - a
+  - $
+  - $
+  - $
+  - s
+  - $
+  - s
+  - a
+  - y
+  - $
+  - e
+  - $
+  - $
+  - 
+  - a
+  - $
+  - 
+  - 
