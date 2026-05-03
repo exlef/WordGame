@@ -9,6 +9,7 @@ This file captures the current working map of the Unity project so future change
 - Current repository branch at time of review: `main`
 - Main package: DTT Word Connect, version `1.0.2`
 - Current language target: Kurmanji Kurdish using standard Latin/Hawar orthography
+- Target orientation: portrait only
 - Default runtime font: `Assets/Fonts/Patrick_Hand/PatrickHand-Regular.ttf`
 - Runtime font override asset: `Assets/WordGame/GameConfig.asset`
 - Main enabled build scenes:
@@ -171,6 +172,8 @@ Important demo prefabs:
 ## Level Select And Saving
 
 Minigame Base handles level select, score persistence, and unlocks.
+
+- The shared `DTT Level Select` scene is laid out for portrait and loads additively over the portrait Word Connect scene.
 
 - `Assets/DTT/Minigame Base/Runtime/Level Select/LevelSelectHandler.cs`
   - Loads the level select scene additively.
