@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace DTT.WordConnect
@@ -53,19 +54,19 @@ namespace DTT.WordConnect
         public int DescriptiveHintBalance { get; private set; }
 
         /// <summary>
-        /// The amount of score gained by finding words.
+        /// The sum of all letters in the placed words for the level.
         /// </summary>
-        public int CurrentScore { get; private set; } = 0;
+        public int TotalLevelLetters { get; private set; }
 
         /// <summary>
-        /// The amount of score gained by streaks.
+        /// The score cost of all assists the player used in the level.
         /// </summary>
-        public int CurrentStreakBonusScore { get; private set; } = 0;
+        public int HintPointsUsed { get; private set; }
 
         /// <summary>
-        /// Counter for the current streak of correct answers.
+        /// The ratio of used assist points to level letters.
         /// </summary>
-        public int CorrectAnswerStreak { get; private set; } = 0;
+        public float AssistRatio => TotalLevelLetters <= 0 ? 0f : (float)HintPointsUsed / TotalLevelLetters;
 
         /// <summary>
         /// Builds an empty WordConnectState object.
@@ -102,6 +103,12 @@ namespace DTT.WordConnect
         }
 
         /// <summary>
+        /// Sets the total letter count used to normalize assist usage.
+        /// </summary>
+        /// <param name="totalLevelLetters">The total amount of letters in all placed words.</param>
+        public void SetTotalLevelLetters(int totalLevelLetters) => TotalLevelLetters = Math.Max(0, totalLevelLetters);
+
+        /// <summary>
         /// Sets the balace of all hint options available in this game. (letter hint, word hint and descriptive hint)
         /// </summary>
         /// <param name="letterHints">The amount of letter hints available in this game.</param>
@@ -130,27 +137,10 @@ namespace DTT.WordConnect
         public void UseDescriptiveHint() => DescriptiveHintBalance -= 1;
 
         /// <summary>
-        /// Adds score to the current score counter.
+        /// Adds assist points to the level total.
         /// </summary>
-        /// <param name="amount">The amount to add to the score.</param>
-        public void AddScore(int amount) => CurrentScore += amount;
-
-        /// <summary>
-        /// Adds score to the streak score counter.
-        /// </summary>
-        /// <param name="amount">The amount to add to the score.</param>
-        public void AddStreakScore(int amount) => CurrentStreakBonusScore += amount;
-
-        /// <summary>
-        /// Increases the streak counter.
-        /// </summary>
-        /// <param name="amount">The amount to increase the streak by.</param>
-        public void IncreaseStreak(int amount) => CorrectAnswerStreak += amount;
-
-        /// <summary>
-        /// Clears the streak counter.
-        /// </summary>
-        public void ClearStreak() => CorrectAnswerStreak = 0;
+        /// <param name="amount">The amount of assist points to add.</param>
+        public void AddHintPoints(int amount) => HintPointsUsed += Math.Max(0, amount);
 
         /// <summary>
         /// Builds the available hint options array from a set of words.

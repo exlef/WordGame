@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using DTT.MinigameBase;
 using UnityEngine;
+using WordGame;
 
 namespace DTT.WordConnect
 {
@@ -34,9 +34,15 @@ namespace DTT.WordConnect
         public List<LetterInput> AvailableLetters { get; private set; }
 
         /// <summary>
-        /// The stopwatch being used to track the current amount of time spent on a Word Connect game.
+        /// Project-level tuning values for scoring and presentation.
         /// </summary>
-        public Stopwatch GameTimer { get; private set; }
+        [SerializeField]
+        private GameConfig _gameConfig;
+
+        /// <summary>
+        /// Project-level tuning values for scoring and presentation.
+        /// </summary>
+        public GameConfig GameConfig => _gameConfig;
 
         /// <summary>
         /// <inheritdoc/>
@@ -91,13 +97,9 @@ namespace DTT.WordConnect
         public event Action Cleanup;
 
         /// <summary>
-        /// Initialize the game stopwatch.
+        /// Initialize the singleton instance.
         /// </summary>
-        private void Awake()
-        {
-            Instance = this;
-            GameTimer = new Stopwatch();
-        }
+        private void Awake() => Instance = this;
 
         /// <summary>
         /// <inheritdoc/>
@@ -111,7 +113,6 @@ namespace DTT.WordConnect
             // Set game related elements.
             IsGameActive = true;
             IsPaused = false;
-            GameTimer.Restart();
             Configuration = config;
 
             // Create a new game state object.
@@ -131,6 +132,7 @@ namespace DTT.WordConnect
 
             // Update the game state object with the words currently in the game and build the hint options with the given words.
             WordConnectState.SetAvailableWords(wordsInCrossword);
+            WordConnectState.SetTotalLevelLetters(wordsInCrossword.Sum(word => word.Length));
             WordConnectState.SetHintOptions(wordsHintsInCrossword);
 
             // Get the necessary letters from the words list.
@@ -155,7 +157,6 @@ namespace DTT.WordConnect
 
             // Set game related elements.
             IsPaused = true;
-            GameTimer.Stop();
 
             // Invoke the pause of the game.
             Paused?.Invoke();
@@ -171,7 +172,6 @@ namespace DTT.WordConnect
 
             // Set game related elements.
             IsPaused = false;
-            GameTimer.Start();
 
             // Invoke the end of the game.
             Continued?.Invoke();
@@ -188,19 +188,9 @@ namespace DTT.WordConnect
             // Stops the game.
             ForceStop();
 
-            float timeElapsed = (float)GameTimer.Elapsed.TotalSeconds;
-            // The score that has been earned by the player.
-            int scoreEarned = WordConnectState.CurrentScore + WordConnectState.CurrentStreakBonusScore + (int)Configuration.CalculatePoints(timeElapsed);
-
-            // Calculate the maximum achievable streak score.
-            int maxPossibleStreakScore = 0;
-            for (int i = 0; i < WordConnectState.WordsInCrossword.Count; i++) maxPossibleStreakScore += i * Configuration.StreakScoreIncrement;
-
-            // The maximum achievable score in this level.
-            int maxPossibleScore = Configuration.ScorePerWordFound * WordConnectState.WordsInCrossword.Count + maxPossibleStreakScore + Configuration.MaxBonusTimeScore;
-
             // Generate a results struct.
-            WordConnectResult results = new WordConnectResult((int)timeElapsed, (float)scoreEarned / maxPossibleScore, scoreEarned);
+            int stars = GetStarsForAssistRatio(WordConnectState.AssistRatio);
+            WordConnectResult results = new WordConnectResult(stars, WordConnectState.HintPointsUsed, WordConnectState.TotalLevelLetters);
 
             // Invoke the end of the game.
             Finish?.Invoke(results);
@@ -214,7 +204,6 @@ namespace DTT.WordConnect
             // Set game related elements.
             IsGameActive = false;
             IsPaused = false;
-            GameTimer.Stop();
 
             Cleanup?.Invoke();
         }
@@ -319,6 +308,7 @@ namespace DTT.WordConnect
             }
             // Subtract one of the letter hint balance.
             WordConnectState.UseLetterHint();
+            WordConnectState.AddHintPoints(GetLetterHintCost());
             // Game state updated, invoke the event for UI to respond accordingly.
             StateUpdated?.Invoke(WordConnectState);
             // If this was the last available letter of this hint remove it *after* the StateUpdated event so UI can update their state before the hint is removed completely.
@@ -364,6 +354,7 @@ namespace DTT.WordConnect
                 // Get a random word hint option object from the word connect state.
                 hint = WordConnectState.HintOptions[UnityEngine.Random.Range(0, WordConnectState.HintOptions.Count)];
             }
+            int wordHintCost = GetWordHintCost(hint.Word.Length);
             // Set the chosen hint to revealed.
             WordConnectState.SetHintWordRevealed(hint);
 
@@ -385,6 +376,7 @@ namespace DTT.WordConnect
             }
             // Subtract one of the word hint balance.
             WordConnectState.UseWordHint();
+            WordConnectState.AddHintPoints(wordHintCost);
             // Game state updated, invoke the event for UI to respond accordingly.
             StateUpdated?.Invoke(WordConnectState);
 
@@ -415,6 +407,7 @@ namespace DTT.WordConnect
 
             // Subtract one of the descriptive hints balance.
             WordConnectState.UseDescriptiveHint();
+            WordConnectState.AddHintPoints(GetDescriptionHintCost());
             // Game state updated, invoke the event for UI to respond accordingly.
             StateUpdated?.Invoke(WordConnectState);
         }
@@ -435,8 +428,7 @@ namespace DTT.WordConnect
                 // Check if this word hasn't already been found.
                 if (WordConnectState.CorrectlyAddedWords.Any(word => KurmanjiTextUtility.WordsEqual(word, spelledWord)))
                 {
-                    // Word has already been found, clear the streak.
-                    WordConnectState.ClearStreak();
+                    // Word has already been found.
                 }
                 else
                 {
@@ -444,15 +436,7 @@ namespace DTT.WordConnect
                     WordConnectState.AddFoundWord(spelledWord);
                     // Remove the word from the available hint options.
                     WordConnectState.RemoveHintOption(spelledWord);
-                    // Add score for finding the word.
-                    WordConnectState.AddScore(Configuration.ScorePerWordFound);
-                    WordConnectState.AddStreakScore(Configuration.StreakScoreIncrement * WordConnectState.CorrectAnswerStreak);
-                    WordConnectState.IncreaseStreak(1);
                 }
-            }
-            else
-            {
-                WordConnectState.ClearStreak();
             }
 
             // Clear the input sequence.
@@ -529,6 +513,42 @@ namespace DTT.WordConnect
                 }
             }
             return neededLetters;
+        }
+
+        /// <summary>
+        /// Gets the configured description hint cost, using the default if no game config is assigned.
+        /// </summary>
+        private int GetDescriptionHintCost() => _gameConfig ? _gameConfig.DescriptionHintCost : GameConfig.DefaultDescriptionHintCost;
+
+        /// <summary>
+        /// Gets the configured letter hint cost, using the default if no game config is assigned.
+        /// </summary>
+        private int GetLetterHintCost() => _gameConfig ? _gameConfig.LetterHintCost : GameConfig.DefaultLetterHintCost;
+
+        /// <summary>
+        /// Gets the configured word hint cost, using the default if no game config is assigned.
+        /// </summary>
+        /// <param name="wordLength">The length of the revealed word.</param>
+        private int GetWordHintCost(int wordLength) => _gameConfig
+            ? _gameConfig.GetWordHintCost(wordLength)
+            : Mathf.Max(GameConfig.DefaultMinWordHintCost, wordLength);
+
+        /// <summary>
+        /// Converts assist usage into the earned star count.
+        /// </summary>
+        /// <param name="assistRatio">The used hint points divided by total level letters.</param>
+        private int GetStarsForAssistRatio(float assistRatio)
+        {
+            if (_gameConfig)
+                return _gameConfig.GetStarsForAssistRatio(assistRatio);
+
+            if (assistRatio <= GameConfig.DefaultThreeStarMaxAssistRatio)
+                return 3;
+
+            if (assistRatio <= GameConfig.DefaultTwoStarMaxAssistRatio)
+                return 2;
+
+            return 1;
         }
 
         /// <summary>

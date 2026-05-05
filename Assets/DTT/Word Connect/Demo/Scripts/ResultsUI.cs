@@ -1,7 +1,7 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 using DTT.Tweening;
+using WordGame;
 
 namespace DTT.WordConnect.Demo
 {
@@ -22,16 +22,22 @@ namespace DTT.WordConnect.Demo
         private GameObject _resultsFullUI;
 
         /// <summary>
-        /// The results time text to be updated.
+        /// Legacy time text. Hidden by the assist-score result UI.
         /// </summary>
         [SerializeField]
         private Text _resultsTimeText;
 
         /// <summary>
-        /// The results score text to be updated.
+        /// Text used to show the earned stars.
         /// </summary>
         [SerializeField]
         private Text _resultsTotalScoreText;
+
+        /// <summary>
+        /// Image-based star displays for the finish result card.
+        /// </summary>
+        [SerializeField]
+        private ResultStarDisplay[] _starDisplays;
 
         [Header("Optional Text Fields")]
         /// <summary>
@@ -52,13 +58,6 @@ namespace DTT.WordConnect.Demo
         [SerializeField]
         private Text _resultsTimeScoreText;
 
-        [Space]
-        /// <summary>
-        /// If the text should be set to a minutes & second format.
-        /// </summary>
-        [SerializeField]
-        private bool _useMinuteFormatting = true;
-
         /// <summary>
         /// Defines if the UI should wait and listen for game results before displaying.
         /// </summary>
@@ -78,6 +77,69 @@ namespace DTT.WordConnect.Demo
         private CanvasGroup _canvasGroup;
 
         /// <summary>
+        /// Names used by the old result panel's text labels and score values.
+        /// </summary>
+        private static readonly string[] _legacyResultTextNames =
+        {
+            "Time",
+            "Time Text",
+            "Score",
+            "Score Text",
+            "Streak Score",
+            "Streak Score Text",
+            "Time Score",
+            "Time Score Text",
+            "Total Score Text"
+        };
+
+        /// <summary>
+        /// Image and spark objects for one result star.
+        /// </summary>
+        [System.Serializable]
+        private class ResultStarDisplay
+        {
+            /// <summary>
+            /// Image for the star itself.
+            /// </summary>
+            [SerializeField]
+            private Image starImage;
+
+            /// <summary>
+            /// Object containing the star spark graphics.
+            /// </summary>
+            [SerializeField]
+            private GameObject sparkObject;
+
+            /// <summary>
+            /// Whether this display has the minimum required star image assigned.
+            /// </summary>
+            public bool HasStarImage => starImage != null;
+
+            /// <summary>
+            /// Applies the visual state for this star.
+            /// </summary>
+            /// <param name="earned">Whether the star was earned.</param>
+            /// <param name="earnedColor">Color used for earned stars and sparks.</param>
+            /// <param name="unearnedColor">Color used for unearned stars.</param>
+            public void SetState(bool earned, Color earnedColor, Color unearnedColor)
+            {
+                if (starImage != null)
+                    starImage.color = earned ? earnedColor : unearnedColor;
+
+                if (sparkObject == null)
+                    return;
+
+                sparkObject.SetActive(earned);
+                if (!earned)
+                    return;
+
+                Graphic[] sparkGraphics = sparkObject.GetComponentsInChildren<Graphic>(true);
+                foreach (Graphic sparkGraphic in sparkGraphics)
+                    sparkGraphic.color = earnedColor;
+            }
+        }
+
+        /// <summary>
         /// Subscribe to the game managers finish event if listening.
         /// </summary>
         private void OnEnable()
@@ -86,6 +148,7 @@ namespace DTT.WordConnect.Demo
 
             // Ensure UI is disabled at the start.
             _resultsFullUI.SetActive(false);
+            HideLegacyResultText();
 
             if (_revealOnFinish)
                 _gameManager.Finish += DisplayResults;
@@ -105,43 +168,9 @@ namespace DTT.WordConnect.Demo
         }
 
         /// <summary>
-        /// Update the text field with the timer.
+        /// Displays the pause popup without legacy score/time values.
         /// </summary>
-        /// <param name="totalTime">Time in seconds to be formatted.</param>
-        /// <returns>The given time in mm:ss format.</returns>
-        private string GetFormattedTime(float totalTime)
-        {
-            // Helper string to be returned after modification.
-            string timeText;
-
-            // Modify the time text based on the settings.
-            if (_useMinuteFormatting)
-            {
-                TimeSpan currentTime = TimeSpan.FromSeconds(totalTime);
-                timeText = string.Format("{0:D2}:{1:D2}", currentTime.Minutes, currentTime.Seconds);
-            }
-            else
-            {
-                timeText = ((int)totalTime).ToString();
-            }
-
-            // Return the result.
-            return timeText;
-        }
-
-        /// <summary>
-        /// Displays the current time elapsed and score.
-        /// </summary>
-        private void DisplayPartialResults()
-        {
-            WordConnectState state = WordConnectManager.Instance.WordConnectState;
-
-            // Get new values and update the text.
-            float timeElapsed = (float)WordConnectManager.Instance.GameTimer.Elapsed.TotalSeconds;
-            string scoreEarned = (state.CurrentScore + state.CurrentStreakBonusScore).ToString();
-            UpdateText(GetFormattedTime(timeElapsed), scoreEarned);
-            FadeInUI();
-        }
+        private void DisplayPartialResults() => FadeInUI();
 
         /// <summary>
         /// Displays the results of the crossword game received.
@@ -149,16 +178,7 @@ namespace DTT.WordConnect.Demo
         /// <param name="results">The game result data to be displayed.</param>
         private void DisplayResults(WordConnectResult results)
         {
-            WordConnectState endState = WordConnectManager.Instance.WordConnectState;
-
-            // Calculate all scores.
-            string baseScore = endState.CurrentScore.ToString();
-            string streakScore = endState.CurrentStreakBonusScore.ToString();
-            string timeScore = ((int)WordConnectManager.Instance.Configuration.CalculatePoints(results.timeTaken)).ToString();
-            string totalScore = results.displayScore.ToString();
-
-            // Populate the result UI object with our scores and time data.
-            UpdateText(GetFormattedTime(results.timeTaken), baseScore, streakScore, timeScore, totalScore);
+            UpdateStars(results.stars);
             // Fade in the results UI after a short delay to let the last word animation complete.
             FadeInUI(1f);
         }
@@ -180,31 +200,115 @@ namespace DTT.WordConnect.Demo
 
 
         /// <summary>
-        /// Update the total score and time text, the other score fields are optional.
+        /// Updates the result display with filled and empty star characters.
         /// </summary>
-        /// <param name="timeText">The time to display.</param>
-        /// <param name="scoreText">The total score to display.</param>
-        private void UpdateText(string timeText, string scoreText)
+        /// <param name="stars">The amount of earned stars.</param>
+        private void UpdateStars(int stars)
         {
-            _resultsTimeText.text = timeText;
-            _resultsTotalScoreText.text = scoreText;
+            int clampedStars = Mathf.Clamp(stars, 0, 3);
+            if (HasImageStarDisplays())
+            {
+                UpdateImageStars(clampedStars);
+                return;
+            }
+
+            if (_resultsTotalScoreText == null)
+                return;
+
+            _resultsTotalScoreText.alignment = TextAnchor.MiddleCenter;
+            _resultsTotalScoreText.text = string.Concat(
+                new string('\u2605', clampedStars),
+                new string('\u2606', 3 - clampedStars));
         }
 
         /// <summary>
-        /// Updates all score and time texts.
+        /// Updates assigned image star displays.
         /// </summary>
-        /// <param name="timeText">The time the game has been playing for.</param>
-        /// <param name="scoreText">The base score.</param>
-        /// <param name="streakScoreText">The bonus score earned from a streak.</param>
-        /// <param name="timeScoreText">The bonus score earned from time.</param>
-        /// <param name="totalScoreText">All the previous scores added together.</param>
-        private void UpdateText(string timeText, string scoreText, string streakScoreText, string timeScoreText, string totalScoreText)
+        /// <param name="earnedStars">The number of stars earned by the player.</param>
+        private void UpdateImageStars(int earnedStars)
         {
-            _resultsTimeText.text = timeText;
-            _resultsScoreText.text = scoreText;
-            _resultsStreakScoreText.text = streakScoreText;
-            _resultsTimeScoreText.text = timeScoreText;
-            _resultsTotalScoreText.text = totalScoreText;
+            Color earnedColor = GetEarnedStarColor();
+            Color unearnedColor = GetUnearnedStarColor();
+
+            for (int i = 0; i < _starDisplays.Length; i++)
+            {
+                if (_starDisplays[i] == null)
+                    continue;
+
+                _starDisplays[i].SetState(i < earnedStars, earnedColor, unearnedColor);
+            }
+        }
+
+        /// <summary>
+        /// Checks whether this results UI uses image stars.
+        /// </summary>
+        private bool HasImageStarDisplays()
+        {
+            if (_starDisplays == null || _starDisplays.Length == 0)
+                return false;
+
+            foreach (ResultStarDisplay starDisplay in _starDisplays)
+            {
+                if (starDisplay != null && starDisplay.HasStarImage)
+                    return true;
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Gets the configured color for earned result stars.
+        /// </summary>
+        private Color GetEarnedStarColor()
+        {
+            GameConfig gameConfig = _gameManager != null ? _gameManager.GameConfig : null;
+            return gameConfig != null ? gameConfig.ResultEarnedStarColor : GameConfig.DefaultResultEarnedStarColor;
+        }
+
+        /// <summary>
+        /// Gets the configured color for unearned result stars.
+        /// </summary>
+        private Color GetUnearnedStarColor()
+        {
+            GameConfig gameConfig = _gameManager != null ? _gameManager.GameConfig : null;
+            return gameConfig != null ? gameConfig.ResultUnearnedStarColor : GameConfig.DefaultResultUnearnedStarColor;
+        }
+
+        /// <summary>
+        /// Hides labels and fields from the old score/time result layout.
+        /// </summary>
+        private void HideLegacyResultText()
+        {
+            HideText(_resultsTimeText);
+            HideText(_resultsScoreText);
+            HideText(_resultsStreakScoreText);
+            HideText(_resultsTimeScoreText);
+
+            Text[] textFields = _resultsFullUI.GetComponentsInChildren<Text>(true);
+            foreach (Text textField in textFields)
+            {
+                if (textField == _resultsTotalScoreText && _revealOnFinish)
+                    continue;
+
+                foreach (string legacyName in _legacyResultTextNames)
+                {
+                    if (textField.gameObject.name != legacyName)
+                        continue;
+
+                    HideText(textField);
+                    break;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Hides a text field if it exists.
+        /// </summary>
+        /// <param name="textField">The text field to hide.</param>
+        private void HideText(Text textField)
+        {
+            if (textField != null)
+                textField.gameObject.SetActive(false);
         }
     }
 }

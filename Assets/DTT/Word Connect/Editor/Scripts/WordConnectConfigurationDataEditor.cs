@@ -40,15 +40,6 @@ namespace DTT.WordConnect.Editor
             EditorGUILayout.PropertyField(propertyCache.gameName);
             EditorGUILayout.PropertyField(propertyCache.colorTheme);
 
-            // Property fields for the bonus time score.
-            EditorGUILayout.Space();
-            EditorGUILayout.LabelField("Score Calculation", EditorStyles.boldLabel);
-            EditorGUILayout.PropertyField(propertyCache.scorePerWordFound);
-            EditorGUILayout.PropertyField(propertyCache.streakScoreIncrement);
-            EditorGUILayout.PropertyField(propertyCache.maxBonusTimeScore);
-            EditorGUILayout.PropertyField(propertyCache.expectedTimeCompletion);
-            EditorGUILayout.PropertyField(propertyCache.completionPointTimeCurve);
-
             // Property fields for hints that are available in this level.
             EditorGUILayout.Space();
             EditorGUILayout.LabelField("Hints", EditorStyles.boldLabel);

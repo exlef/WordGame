@@ -14,3 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   regularFont: {fileID: 12800000, guid: 44f699a5066d44288bd79d83abccd942, type: 3}
   boldFont: {fileID: 12800000, guid: 1a926be659cb46f1833a87d52a6687a5, type: 3}
+  descriptionHintCost: 1
+  letterHintCost: 2
+  minWordHintCost: 3
+  threeStarMaxAssistRatio: 0.15
+  twoStarMaxAssistRatio: 0.35
+  resultEarnedStarColor: {r: 1, g: 0.7764706, b: 0, a: 1}
+  resultUnearnedStarColor: {r: 0.84705883, g: 0.8784314, b: 0.9411765, a: 1}

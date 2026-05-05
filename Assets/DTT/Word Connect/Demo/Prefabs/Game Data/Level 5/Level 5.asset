@@ -17,14 +17,6 @@ MonoBehaviour:
   _letterHintsAvailable: 4
   _descriptionHintsAvailable: 6
   _dictionaryAsset: {fileID: 11400000, guid: ae028aaba1538a849a1d7289df560bcf, type: 2}
-  _completionPointTimeCurve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  _expectedTimeCompletion: 0
-  _maxBonusTimeScore: 500
   _wordVectors:
   - <OriginPosition>k__BackingField: {x: 0, y: 0}
     <IsDown>k__BackingField: 0

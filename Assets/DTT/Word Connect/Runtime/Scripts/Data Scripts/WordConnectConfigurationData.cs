@@ -79,61 +79,6 @@ namespace DTT.WordConnect
         public WordHintDictionary DictionaryAsset => _dictionaryAsset;
 
         /// <summary>
-        /// How the completion points earned diminish over time.
-        /// </summary>
-        [SerializeField]
-        private AnimationCurve _completionPointTimeCurve;
-
-        /// <summary>
-        /// <inheritdoc cref="_completionPointTimeCurve"/>
-        /// </summary>
-        public AnimationCurve CompletionPointTimeCurve => _completionPointTimeCurve;
-
-        /// <summary>
-        /// How long a user is expected to spend on the game in seconds.
-        /// </summary>
-        [SerializeField]
-        private int _expectedTimeCompletion;
-
-        /// <summary>
-        /// <inheritdoc cref="_expectedTimeCompletion"/>
-        /// </summary>
-        public int ExpectedTimeCompletion => _expectedTimeCompletion;
-
-        /// <summary>
-        /// The bonus amount of score given to the player based on the completion time.
-        /// </summary>
-        [SerializeField]
-        private int _maxBonusTimeScore = 500;
-
-        /// <summary>
-        /// <inheritdoc cref="_maxBonusTimeScore"/>
-        /// </summary>
-        public int MaxBonusTimeScore => _maxBonusTimeScore;
-
-        /// <summary>
-        /// The base amount of score the player gets for each word found.
-        /// </summary>
-        [SerializeField]
-        private int _scorePerWordFound = 100;
-
-        /// <summary>
-        /// <inheritdoc cref="_scorePerWordFound"/>
-        /// </summary>
-        public int ScorePerWordFound => _scorePerWordFound;
-
-        /// <summary>
-        /// The amount of bonus score added if the player has a correct answer streak.
-        /// </summary>
-        [SerializeField]
-        private int _streakScoreIncrement = 20;
-
-        /// <summary>
-        /// <inheritdoc cref="_streakScoreIncrement"/>
-        /// </summary>
-        public int StreakScoreIncrement => _streakScoreIncrement;
-
-        /// <summary>
         /// If true, using a word hint will try to reveal the longest word in the word grid.
         /// </summary>
         [SerializeField]
@@ -214,19 +159,6 @@ namespace DTT.WordConnect
                     iteration++;
                 }
             }
-        }
-
-        /// <summary>
-        /// Calculates how many points are earned based on the time passed.
-        /// </summary>
-        /// <param name="seconds">The time being compared for the point calculation.</param>
-        /// <returns>The final score, accounting for time.</returns>
-        public float CalculatePoints(float seconds)
-        {
-            float timeRatio = seconds / _expectedTimeCompletion;
-            float multiplier = _completionPointTimeCurve.Evaluate(timeRatio);
-            float finalScore = multiplier * _maxBonusTimeScore;
-            return finalScore;
         }
 
         /// <summary>
