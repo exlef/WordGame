@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Level 2
   m_EditorClassIdentifier: 
   _gameName: Level 2
-  _colorTheme: {fileID: 11400000, guid: 3d0640e78fb7d054abc732574837ca17, type: 2}
   _wordHintsAvailable: 0
   _letterHintsAvailable: 0
   _descriptionHintsAvailable: 0

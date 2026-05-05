@@ -38,7 +38,6 @@ namespace DTT.WordConnect.Editor
             // Property fields for the game name.
             EditorGUILayout.LabelField("Game Information", EditorStyles.boldLabel);
             EditorGUILayout.PropertyField(propertyCache.gameName);
-            EditorGUILayout.PropertyField(propertyCache.colorTheme);
 
             // Property fields for hints that are available in this level.
             EditorGUILayout.Space();

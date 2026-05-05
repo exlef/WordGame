@@ -4,7 +4,6 @@ using UnityEditor;
 public class ConfigurationPropertyCache : SerializedPropertyCache
 {
     public SerializedProperty gameName => base[nameof(gameName)];
-    public SerializedProperty colorTheme => base[nameof(colorTheme)];
     public SerializedProperty wordHintsAvailable => base[nameof(wordHintsAvailable)];
     public SerializedProperty letterHintsAvailable => base[nameof(letterHintsAvailable)];
     public SerializedProperty descriptionHintsAvailable => base[nameof(descriptionHintsAvailable)];

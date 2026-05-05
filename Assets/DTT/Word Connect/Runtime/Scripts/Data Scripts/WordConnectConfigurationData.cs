@@ -24,17 +24,6 @@ namespace DTT.WordConnect
         public string GameName => _gameName;
 
         /// <summary>
-        /// The set of colors used in this game.
-        /// </summary>
-        [SerializeField]
-        private ColorTheme _colorTheme;
-
-        /// <summary>
-        /// <inheritdoc cref="_colorTheme"/>
-        /// </summary>
-        public ColorTheme ColorTheme => _colorTheme;
-
-        /// <summary>
         /// The amount of word hints available in this game.
         /// </summary>
         [SerializeField]

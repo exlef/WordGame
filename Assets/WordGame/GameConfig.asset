@@ -14,6 +14,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   regularFont: {fileID: 12800000, guid: 44f699a5066d44288bd79d83abccd942, type: 3}
   boldFont: {fileID: 12800000, guid: 1a926be659cb46f1833a87d52a6687a5, type: 3}
+  globalBackgroundColor: {r: 1, g: 0.75294125, b: 0.3529412, a: 1}
+  globalBackgroundGradientColor: {r: 1, g: 0.6784314, b: 0.25882354, a: 1}
+  globalBackgroundElementsColor: {r: 1, g: 0.8000001, b: 0.41176474, a: 1}
+  highlightColor: {r: 0.36078432, g: 0.50980395, b: 1, a: 1}
+  lightHighlightColor: {r: 0.36078432, g: 0.6901961, b: 1, a: 1}
+  letterInputLetterColor: {r: 0.29803923, g: 0.37254903, b: 0.50980395, a: 1}
+  hintButtonColor: {r: 0.96470594, g: 0.3529412, b: 0.76470596, a: 1}
+  lightHintButtonColor: {r: 0.9725491, g: 0.5058824, b: 0.8196079, a: 1}
+  foundTileColor: {r: 0.27058825, g: 0.83921576, b: 0.6392157, a: 1}
+  foundTileLetterColor: {r: 1, g: 1, b: 1, a: 1}
+  hintedTileColor: {r: 0.27058825, g: 0.83921576, b: 0.6392157, a: 1}
+  hintedTileLetterColor: {r: 1, g: 1, b: 1, a: 1}
+  regularTileColor: {r: 1, g: 1, b: 1, a: 1}
+  levelBackgroundColorGroups:
+  - startLevel: 1
+    endLevel: 1
+    backgroundColor: {r: 1, g: 0.75294125, b: 0.3529412, a: 1}
+    backgroundGradientColor: {r: 1, g: 0.6784314, b: 0.25882354, a: 1}
+    backgroundElementsColor: {r: 1, g: 0.8000001, b: 0.41176474, a: 1}
+  - startLevel: 2
+    endLevel: 60
+    backgroundColor: {r: 0.35294116, g: 1, b: 0.44493333, a: 1}
+    backgroundGradientColor: {r: 0.27634388, g: 0.8490566, b: 0.35617664, a: 1}
+    backgroundElementsColor: {r: 0.514151, g: 1, b: 0.5818754, a: 1}
   descriptionHintCost: 1
   letterHintCost: 2
   minWordHintCost: 3

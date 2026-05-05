@@ -1,21 +1,15 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using WordGame;
 
 namespace DTT.WordConnect.Demo
 {
     /// <summary>
-    /// Controls the colors of the game using the color theme in the given game configuration.
+    /// Controls the colors of the game using the assigned game configuration.
     /// </summary>
     public class ColorThemeController : MonoBehaviour
     {
-        /// <summary>
-        /// The background image component.
-        /// </summary>
-        [SerializeField]
-        private ColorTheme _standardColorTheme;
-
         [Header("Standard elements")]
         /// <summary>
         /// List of image components to be colored with the background color.
@@ -79,55 +73,67 @@ namespace DTT.WordConnect.Demo
         private List<Image> _lightHighlightElements;
 
         /// <summary>
-        /// List of all UI elements which should be colored with the background color.
+        /// List of all UI elements which should be colored with the global background color.
+        /// </summary>
         [SerializeField]
         private List<Image> _backgroundColoredElements;
 
         /// <summary>
         /// On start listen to the initialize event to update the game colors.
         /// </summary>
-        private void OnEnable() => WordConnectManager.Instance.Initialized += () => UpdateColors(WordConnectManager.Instance.Configuration.ColorTheme);
+        private void OnEnable()
+        {
+            if (WordConnectManager.Instance != null)
+                WordConnectManager.Instance.Initialized += UpdateColors;
+        }
 
         /// <summary>
         /// On start stop listening to event.
         /// </summary>
-        private void OnDisable() => WordConnectManager.Instance.Initialized -= () => UpdateColors(WordConnectManager.Instance.Configuration.ColorTheme);
+        private void OnDisable()
+        {
+            if (WordConnectManager.Instance != null)
+                WordConnectManager.Instance.Initialized -= UpdateColors;
+        }
 
         /// <summary>
-        /// Update the entire UI to match the given color theme.
+        /// Update the UI to match the global config colors and current level background.
         /// </summary>
-        /// <param name="colorTheme">The color theme which contains the colors which the UI will change to.</param>
-        public void UpdateColors(ColorTheme colorTheme)
+        public void UpdateColors()
         {
-            // If there is no color theme, return.
-            if (colorTheme == null)
-                colorTheme = _standardColorTheme;
+            WordConnectManager manager = WordConnectManager.Instance;
+            GameConfig gameConfig = manager != null ? manager.GameConfig : null;
 
-            // Set the background colors
-            _background.color = colorTheme.BackgroundColor;
-            _backgroundGradient.color = colorTheme.BackgroundGradientColor;
-            _backgroundElements.color = colorTheme.BackgroundElementsColor;
+            if (gameConfig == null)
+                return;
+
+            GameConfig.LevelBackgroundColors backgroundColors = gameConfig.GetBackgroundColorsForLevel(manager.CurrentLevelNumber);
+
+            // Set the background colors.
+            _background.color = backgroundColors.BackgroundColor;
+            _backgroundGradient.color = backgroundColors.BackgroundGradientColor;
+            _backgroundElements.color = backgroundColors.BackgroundElementsColor;
 
             // Set the hint button colors.
-            _hintButtons.ForEach((button) => button.color = colorTheme.HintButtonColor);
-            _hintHighlights.ForEach((button) => button.color = colorTheme.LightHintButtonColor);
+            _hintButtons.ForEach((button) => button.color = gameConfig.HintButtonColor);
+            _hintHighlights.ForEach((button) => button.color = gameConfig.LightHintButtonColor);
 
             // Set the highlight UI elements colors.
-            _highlightElements.ForEach((element) => element.color = colorTheme.HighlightColor);
-            _lightHighlightElements.ForEach((element) => element.color = colorTheme.LightHighlightColor);
-            _backgroundColoredElements.ForEach((element) => element.color = colorTheme.BackgroundColor);
+            _highlightElements.ForEach((element) => element.color = gameConfig.HighlightColor);
+            _lightHighlightElements.ForEach((element) => element.color = gameConfig.LightHighlightColor);
+            _backgroundColoredElements.ForEach((element) => element.color = gameConfig.GlobalBackgroundColor);
 
             // Set letter input colors.
-            _letterInputPrefab.SetColors(colorTheme.HighlightColor, colorTheme.LetterInputLetterColor); 
-            _inputLinePrefab.SetColor(colorTheme.HighlightColor);
+            _letterInputPrefab.SetColors(gameConfig.HighlightColor, gameConfig.LetterInputLetterColor);
+            _inputLinePrefab.SetColor(gameConfig.HighlightColor);
 
             // The regular text color should be equal to the found text color with the alpha set to zero.
             // This way when animating to the found state only the alpha animates.
-            Color regularTextColor = colorTheme.FoundTileLetterColor;
+            Color regularTextColor = gameConfig.FoundTileLetterColor;
             regularTextColor.a = 0;
 
             // Set the letter tile state colors.
-            _letterTilePrefab.SetColors(regularTextColor, colorTheme.RegularTileColor, colorTheme.HintedTileLetterColor, colorTheme.HintedTileColor, colorTheme.FoundTileLetterColor, colorTheme.FoundTileColor);
+            _letterTilePrefab.SetColors(regularTextColor, gameConfig.RegularTileColor, gameConfig.HintedTileLetterColor, gameConfig.HintedTileColor, gameConfig.FoundTileLetterColor, gameConfig.FoundTileColor);
         }
     }
 }

@@ -24,6 +24,11 @@ namespace DTT.WordConnect
         public WordConnectConfigurationData Configuration { get; private set; }
 
         /// <summary>
+        /// The level number currently being played.
+        /// </summary>
+        public int CurrentLevelNumber { get; private set; } = 1;
+
+        /// <summary>
         /// Class which holds the state of the word connect game.
         /// </summary>
         public WordConnectState WordConnectState { get; private set; }
@@ -100,6 +105,12 @@ namespace DTT.WordConnect
         /// Initialize the singleton instance.
         /// </summary>
         private void Awake() => Instance = this;
+
+        /// <summary>
+        /// Sets the level number currently being played.
+        /// </summary>
+        /// <param name="levelNumber">The selected level number.</param>
+        public void SetCurrentLevelNumber(int levelNumber) => CurrentLevelNumber = Mathf.Max(1, levelNumber);
 
         /// <summary>
         /// <inheritdoc/>

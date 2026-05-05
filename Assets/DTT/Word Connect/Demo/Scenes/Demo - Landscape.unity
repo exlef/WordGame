@@ -16781,7 +16781,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 214aa39a4be09854a8d3fbb9ed3dbe6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _standardColorTheme: {fileID: 11400000, guid: c0e18d198b1b16340a16d18f3b6e7546, type: 2}
   _background: {fileID: 645153946}
   _backgroundGradient: {fileID: 9517129}
   _backgroundElements: {fileID: 1526994247}

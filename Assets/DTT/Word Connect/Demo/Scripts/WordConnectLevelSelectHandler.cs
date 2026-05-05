@@ -27,6 +27,10 @@ namespace DTT.WordConnect.Editor
         /// </summary>
         /// <param name="levelNumber">The level being fetched.</param>
         /// <returns>The word connect configuration that was fetched.</returns>
-        protected override WordConnectConfigurationData GetConfig(int levelNumber) => _wordConnectConfigurations[(levelNumber - 1) % _wordConnectConfigurations.Length];
+        protected override WordConnectConfigurationData GetConfig(int levelNumber)
+        {
+            WordConnectManager.Instance.SetCurrentLevelNumber(levelNumber);
+            return _wordConnectConfigurations[(levelNumber - 1) % _wordConnectConfigurations.Length];
+        }
     }
 }
