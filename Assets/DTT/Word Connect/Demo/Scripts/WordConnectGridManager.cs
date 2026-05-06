@@ -117,7 +117,7 @@ namespace DTT.WordConnect.Demo
         /// <summary>
         /// Generates one possible game layout and save it for displaying.
         /// </summary>
-        public void GenerateNewVectorLayout() => _gameLayout.SetWordVectors(AbstractedCrosswordAlgorithm.GetVectorCrosswordLayout(_gameData.DictionaryAsset, _debugAlgorithm));
+        public void GenerateNewVectorLayout() => _gameLayout.SetWordVectors(AbstractedCrosswordAlgorithm.GetVectorCrosswordLayout(_gameData.WordHintPairs, _debugAlgorithm));
 
         /// <summary>
         /// Changes the active game configuration.
@@ -311,7 +311,7 @@ namespace DTT.WordConnect.Demo
             foreach (WordVector wordVector in _gameLayout.WordVectors)
             {
                 // Declare and instance a new word tile to manage individual tiles.
-                WordTile wordTile = WordTile.CreateWordTile(wordVector.WordHintPair);
+                WordTile wordTile = WordTile.CreateWordTile(wordVector.Word);
                 wordTiles.Add(wordTile);
                 wordTile.SetupTile(this);
                 if (Application.isPlaying) _wordConnectManager.StateUpdated += wordTile.GameStateUpdated;
@@ -347,7 +347,7 @@ namespace DTT.WordConnect.Demo
                     LetterTile letterTile = tile.GetComponent<LetterTile>();
                     letterTile.UpdateColors();
                     letterTile.CompletionAnimationScale = AnimationTileScale;
-                    letterTile.LetterDisplay.text = KurmanjiTextUtility.ToDisplayUpper(wordVector.WordHintPair.Word[i].ToString());
+                    letterTile.LetterDisplay.text = KurmanjiTextUtility.ToDisplayUpper(wordVector.Word[i].ToString());
 
                     // Save the letter tile class for quick usage later on and add to the managing word tile.
                     letterTiles.Add(letterTile);
@@ -355,7 +355,7 @@ namespace DTT.WordConnect.Demo
 
                     // Set the grid data.
                     temporaryGrid[newPosition.x, newPosition.y] = tile;
-                    temporaryPreviewGrid[newPosition.x, newPosition.y] = wordVector.WordHintPair.Word[i];
+                    temporaryPreviewGrid[newPosition.x, newPosition.y] = wordVector.Word[i];
                 }
 
                 // Iterate over each influenced position and mark it with an $ (if it fits).

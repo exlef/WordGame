@@ -11,12 +11,20 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d991669cd30d37c4c8e2ab4a95363015, type: 3}
   m_Name: Level 1
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier:
   _gameName: Level 1
   _wordHintsAvailable: 0
   _letterHintsAvailable: 1
   _descriptionHintsAvailable: 100
-  _dictionaryAsset: {fileID: 11400000, guid: 8102d4789ff9c99418f1d7f1db5cc7e4, type: 2}
+  _wordHintPairs:
+  - word: nava
+    hint: Hundirê tiştekî.
+  - word: nav
+    hint: Peyva ku mirov pê tê nasîn.
+  - word: nan
+    hint: Xwarina rojane.
+  - word: av
+    hint: Tişta ku em vedixwin.
   _wordVectors:
   - <OriginPosition>k__BackingField: {x: 0, y: 0}
     <IsDown>k__BackingField: 0
@@ -36,7 +44,7 @@ MonoBehaviour:
     - {x: 3, y: 1}
     - {x: 3, y: -1}
     - {x: 4, y: 0}
-    <WordHintPair>k__BackingField: {fileID: 11400000, guid: acf5c55856483aa4797a21b6bd90d97b, type: 2}
+    <Word>k__BackingField: nava
   - <OriginPosition>k__BackingField: {x: 0, y: 0}
     <IsDown>k__BackingField: 1
     <OccupiedPositions>k__BackingField:
@@ -52,7 +60,7 @@ MonoBehaviour:
     - {x: -1, y: -2}
     - {x: 1, y: -2}
     - {x: 0, y: -3}
-    <WordHintPair>k__BackingField: {fileID: 11400000, guid: a464b9cef9fa3bf4eae24dd289eae83a, type: 2}
+    <Word>k__BackingField: nav
   - <OriginPosition>k__BackingField: {x: 3, y: 1}
     <IsDown>k__BackingField: 1
     <OccupiedPositions>k__BackingField:
@@ -68,7 +76,7 @@ MonoBehaviour:
     - {x: 2, y: -1}
     - {x: 4, y: -1}
     - {x: 3, y: -2}
-    <WordHintPair>k__BackingField: {fileID: 11400000, guid: 66793574bc0bbed49ba5514c9db37f74, type: 2}
+    <Word>k__BackingField: nan
   - <OriginPosition>k__BackingField: {x: -1, y: -2}
     <IsDown>k__BackingField: 0
     <OccupiedPositions>k__BackingField:
@@ -81,10 +89,10 @@ MonoBehaviour:
     - {x: 0, y: -1}
     - {x: 0, y: -3}
     - {x: 1, y: -2}
-    <WordHintPair>k__BackingField: {fileID: 11400000, guid: 740190b10bd1c944f98c841701d4869f, type: 2}
+    <Word>k__BackingField: av
   _gridWidth: 5
   _flattenedLetterLayout:
-  - 
+  - ""
   - $
   - $
   - $
@@ -102,5 +110,5 @@ MonoBehaviour:
   - a
   - v
   - $
-  - 
+  - ""
   - $

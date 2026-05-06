@@ -47,10 +47,10 @@ namespace DTT.WordConnect.Editor
             EditorGUILayout.PropertyField(propertyCache.descriptionHintsAvailable);
             EditorGUILayout.PropertyField(propertyCache.prioritizeLongestWordHint);
 
-            // Property field for the dictionary asset.
+            // Property field for the level's words and descriptive hints.
             EditorGUILayout.Space();
-            EditorGUILayout.LabelField("Layout", EditorStyles.boldLabel);
-            EditorGUILayout.PropertyField(propertyCache.dictionaryAsset);
+            EditorGUILayout.LabelField("Words", EditorStyles.boldLabel);
+            EditorGUILayout.PropertyField(propertyCache.wordHintPairs, true);
 
             EditorGUILayout.Space(25);
 

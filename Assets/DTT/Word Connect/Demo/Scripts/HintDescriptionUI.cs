@@ -287,7 +287,7 @@ namespace DTT.WordConnect.Demo
         private WordTile GetHintedWordTile(List<WordTile> wordTiles)
         {
             string hintedWord = WordConnectManager.Instance.WordConnectState.CurrentRevealedDescriptiveHint.Word;
-            return wordTiles.Find(tile => KurmanjiTextUtility.WordsEqual(tile.WordHint.Word, hintedWord));
+            return wordTiles.Find(tile => KurmanjiTextUtility.WordsEqual(tile.Word, hintedWord));
         }
 
         /// <summary>

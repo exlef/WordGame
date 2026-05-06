@@ -23,19 +23,28 @@ namespace DTT.WordConnect
         /// <summary>
         /// Generates a two dimensional character array that represents a crossword layout.
         /// </summary>
-        /// <param name="wordHintDictionary">The dictionary being used in creation.</param>
+        /// <param name="wordHintPairs">The word/hint pairs being used in creation.</param>
         /// <param name="debugAlgorithm">If the algorithm should debug the results of generation.</param>
         /// <returns>A list of word vectors representing a crossword.</returns>
-        public static List<WordVector> GetVectorCrosswordLayout(WordHintDictionary wordHintDictionary, bool debugAlgorithm)
+        public static List<WordVector> GetVectorCrosswordLayout(IEnumerable<WordHintPair> wordHintPairs, bool debugAlgorithm)
         {
+            IEnumerable<WordHintPair> configuredPairs = wordHintPairs ?? Enumerable.Empty<WordHintPair>();
+
             // Temporary dictionary to hold currently used and unused words and the number of times it has failed to be used.
-            Dictionary<WordHintPair, int> unusedWords = wordHintDictionary.WordHintPairs.ToDictionary(x => x, x => 0);
+            Dictionary<string, int> unusedWords = configuredPairs
+                .Where(pair => pair != null && !string.IsNullOrEmpty(pair.Word))
+                .Select(pair => pair.Word)
+                .Distinct()
+                .ToDictionary(word => word, word => 0);
 
             // Track words in vector formats for crossword building.
             List<WordVector> wordVectors = new List<WordVector>();
 
+            if (unusedWords.Count == 0)
+                return wordVectors;
+
             // Start off the grid with one random word.
-            WordHintPair randomWord = unusedWords.Keys.ToArray()[Random.Range(0, unusedWords.Keys.Count)];
+            string randomWord = unusedWords.Keys.ToArray()[Random.Range(0, unusedWords.Keys.Count)];
             unusedWords.Remove(randomWord);
             wordVectors.Add(new WordVector(randomWord, Vector2Int.zero, Random.Range(0f, 1) <= _firstWordDownWeight));
 
@@ -43,7 +52,7 @@ namespace DTT.WordConnect
             int lowestFailCount = 0;
 
             // Helper list to track words with the lowest fail count.
-            List<WordHintPair> lowestFailWords = new List<WordHintPair>();
+            List<string> lowestFailWords = new List<string>();
 
             // Helper reference for new possible word vectors.
             WordVector newWordVector;
@@ -53,7 +62,7 @@ namespace DTT.WordConnect
             {
                 // Get list of words with the lowest fail count.
                 lowestFailWords.Clear();
-                foreach (KeyValuePair<WordHintPair, int> wordPair in unusedWords)
+                foreach (KeyValuePair<string, int> wordPair in unusedWords)
                     if (wordPair.Value <= lowestFailCount)
                         lowestFailWords.Add(wordPair.Key);
 
@@ -69,7 +78,7 @@ namespace DTT.WordConnect
 
                 // If sucessful, remove, otherwise incrememnt its tracked failures.
                 newWordVector = GetValidWordVector(randomWord, wordVectors);
-                if (newWordVector.WordHintPair)
+                if (!string.IsNullOrEmpty(newWordVector.Word))
                 {
                     unusedWords.Remove(randomWord);
                     wordVectors.Add(newWordVector);
@@ -87,12 +96,12 @@ namespace DTT.WordConnect
                 for (int i = 0; i < wordVectors.Count; i++)
                 {
                     WordVector item = wordVectors[i];
-                    Debug.Log(string.Concat(i, ". ", item.WordHintPair.Word));
+                    Debug.Log(string.Concat(i, ". ", item.Word));
                 }
 
                 Debug.Log(string.Concat("Excluded " + unusedWords.Count, " words after ", lowestFailCount, " failure cycles:"));
-                foreach (KeyValuePair<WordHintPair, int> v in unusedWords)
-                    Debug.Log(string.Concat(v.Key.Word));
+                foreach (KeyValuePair<string, int> v in unusedWords)
+                    Debug.Log(string.Concat(v.Key));
             }
 
             // Return the word vectors.
@@ -102,23 +111,23 @@ namespace DTT.WordConnect
         /// <summary>
         /// Gets a valid crossword word vector for a given vector word grid.
         /// </summary>
-        /// <param name="givenPair">The new pair to be added to a vector grid.</param>
+        /// <param name="givenWord">The new word to be added to a vector grid.</param>
         /// <param name="currentVectorGrid">The current vector grid that is in place.</param>
         /// <returns>A valid word vector that fits in the grid, otherwise an empty word vector struct.</returns>
-        public static WordVector GetValidWordVector(WordHintPair givenPair, List<WordVector> currentVectorGrid)
+        public static WordVector GetValidWordVector(string givenWord, List<WordVector> currentVectorGrid)
         {
             // Find all potential placements.
             foreach (WordVector wordVector in currentVectorGrid)
             {
                 // Check for valid overlaps in this word.
-                for (int i = 0; i < wordVector.WordHintPair.Word.Length; i++)
+                for (int i = 0; i < wordVector.Word.Length; i++)
                 {
-                    char checkedLetter = wordVector.WordHintPair.Word[i];
+                    char checkedLetter = wordVector.Word[i];
 
                     // Check if any of the letters can be extended from.
-                    for (int i1 = 0; i1 < givenPair.Word.Length; i1++)
+                    for (int i1 = 0; i1 < givenWord.Length; i1++)
                     {
-                        if (char.ToUpperInvariant(checkedLetter) == char.ToUpperInvariant(givenPair.Word[i1]))
+                        if (char.ToUpperInvariant(checkedLetter) == char.ToUpperInvariant(givenWord[i1]))
                         {
                             // Helper bool to track if the new word is extending down or across from the checked letter.
                             bool isDown = !wordVector.IsDown;
@@ -127,7 +136,7 @@ namespace DTT.WordConnect
                             Vector2Int simulatedOrigin = wordVector.OccupiedPositions[i] + new Vector2Int(isDown ? 0 : -i1, isDown ? i1 : 0);
 
                             // Temporary word vector declaration for overlap testing.
-                            WordVector potentialWordVector = new WordVector(givenPair, simulatedOrigin, isDown);
+                            WordVector potentialWordVector = new WordVector(givenWord, simulatedOrigin, isDown);
 
                             // Helper bool for tracking if an overlap was detected.
                             bool hadOverlap = false;

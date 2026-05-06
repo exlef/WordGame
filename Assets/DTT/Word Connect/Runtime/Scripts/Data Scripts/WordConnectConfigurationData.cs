@@ -6,14 +6,14 @@ using DTT.Utils.Extensions;
 namespace DTT.WordConnect
 {
     /// <summary>
-    /// The purpose of this class is to hold a <see cref="WordHintDictionary"/> and associated
+    /// The purpose of this class is to hold word/hint pairs and associated
     /// Word Connect related data that represents it.
     /// </summary>
     [CreateAssetMenu(fileName = "Word Connect Data", menuName = "DTT/Word Connect/Config")]
     public class WordConnectConfigurationData : ScriptableObject
     {
         /// <summary>
-        /// The dictionary that should be associated with a given game's puzzle data.
+        /// The display name for this level's puzzle data.
         /// </summary>
         [SerializeField]
         private string _gameName;
@@ -57,15 +57,20 @@ namespace DTT.WordConnect
         public int DescriptionHintsAvailable => _descriptionHintsAvailable;
 
         /// <summary>
-        /// The dictionary that should be associated with a given WordConnect puzzles data.
+        /// The word/hint pairs available for this level.
         /// </summary>
         [SerializeField]
-        private WordHintDictionary _dictionaryAsset;
+        private List<WordHintPair> _wordHintPairs = new List<WordHintPair>();
 
         /// <summary>
-        /// <inheritdoc cref="_dictionaryAsset"/>
+        /// <inheritdoc cref="_wordHintPairs"/>
         /// </summary>
-        public WordHintDictionary DictionaryAsset => _dictionaryAsset;
+        public List<WordHintPair> WordHintPairs => _wordHintPairs;
+
+        /// <summary>
+        /// Whether this level has at least one valid word configured.
+        /// </summary>
+        public bool HasConfiguredWords => _wordHintPairs != null && _wordHintPairs.Any(pair => pair != null && !string.IsNullOrEmpty(pair.Word));
 
         /// <summary>
         /// If true, using a word hint will try to reveal the longest word in the word grid.
@@ -119,7 +124,22 @@ namespace DTT.WordConnect
         /// The word vectors are returned as copies so that they may correctly be constructed.
         /// </summary>
         /// <returns>A partially constructed game layout.</returns>
-        public WordConnectLayout ReturnLayout() => new WordConnectLayout(null, _crosswordLetters, _wordVectors.Select(x => x.ReturnCopy()).ToList());
+        public WordConnectLayout ReturnLayout() => new WordConnectLayout(
+            null,
+            _crosswordLetters,
+            _wordVectors == null ? new List<WordVector>() : _wordVectors.Select(x => x.ReturnCopy()).ToList());
+
+        /// <summary>
+        /// Gets the configured word/hint pair for a word.
+        /// </summary>
+        /// <param name="word">The word to find hint data for.</param>
+        /// <returns>A word/hint pair. The hint is empty when no matching row exists.</returns>
+        public WordHintPair GetWordHintPair(string word)
+        {
+            string normalizedWord = KurmanjiTextUtility.NormalizeWord(word);
+            WordHintPair hintPair = _wordHintPairs?.FirstOrDefault(pair => pair != null && KurmanjiTextUtility.WordsEqual(pair.Word, normalizedWord));
+            return new WordHintPair(normalizedWord, hintPair?.Hint ?? string.Empty);
+        }
 
         /// <summary>
         /// Sets the list of word vectors.
@@ -159,7 +179,7 @@ namespace DTT.WordConnect
         public bool LetterHasOverlap(string word, int letterIndex)
         {
             // Get the WordVector object that represents the given word variable.
-            WordVector wordVectorToCheck = _wordVectors.Find(wordVector => KurmanjiTextUtility.WordsEqual(wordVector.WordHintPair.Word, word));
+            WordVector wordVectorToCheck = _wordVectors.Find(wordVector => KurmanjiTextUtility.WordsEqual(wordVector.Word, word));
 
             // Get the position the given letterIndex occupies.
             Vector2Int letterPosition = wordVectorToCheck.OccupiedPositions[letterIndex];
@@ -167,7 +187,7 @@ namespace DTT.WordConnect
             foreach (WordVector wordVector in WordVectors)
             {
                 // Skip the wordVector we are checking for.
-                if (KurmanjiTextUtility.WordsEqual(wordVector.WordHintPair.Word, wordVectorToCheck.WordHintPair.Word)) continue;
+                if (KurmanjiTextUtility.WordsEqual(wordVector.Word, wordVectorToCheck.Word)) continue;
                 // If any other words occupy the same position there is overlap.
                 if (wordVector.OccupiedPositions.Contains(letterPosition)) return true;
 
@@ -183,7 +203,7 @@ namespace DTT.WordConnect
         public (string, int) GetLetterOverlap(string word, int letterIndex)
         {
             // Get the WordVector object that represents the given word variable.
-            WordVector wordVectorToCheck = _wordVectors.Find(wordVector => KurmanjiTextUtility.WordsEqual(wordVector.WordHintPair.Word, word));
+            WordVector wordVectorToCheck = _wordVectors.Find(wordVector => KurmanjiTextUtility.WordsEqual(wordVector.Word, word));
             // Calculate all positions the WordVector occupies in the grid.
             _wordVectors.ForEach(wordVector => wordVector.CalculatePositions());
 
@@ -192,13 +212,13 @@ namespace DTT.WordConnect
             foreach (WordVector wordVector in WordVectors)
             {
                 // Skip the wordVector we are checking for.
-                if (KurmanjiTextUtility.WordsEqual(wordVector.WordHintPair.Word, wordVectorToCheck.WordHintPair.Word))
+                if (KurmanjiTextUtility.WordsEqual(wordVector.Word, wordVectorToCheck.Word))
                     continue;
 
                 // If any other words occupy the same position there is overlap.
                 // Return the overlapping word and its index.
                 if (wordVector.OccupiedPositions.Contains(letterPosition))
-                    return (wordVector.WordHintPair.Word, wordVector.OccupiedPositions.IndexOf(letterPosition));
+                    return (wordVector.Word, wordVector.OccupiedPositions.IndexOf(letterPosition));
 
             }
             return (null, 0);
@@ -211,6 +231,12 @@ namespace DTT.WordConnect
         {
             if (GameName.IsNullOrEmpty())
                 _gameName = this.name;
+
+            if (_wordHintPairs == null)
+                _wordHintPairs = new List<WordHintPair>();
+
+            foreach (WordHintPair hintPair in _wordHintPairs)
+                hintPair?.Normalize();
         }
     }
 }

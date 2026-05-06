@@ -134,11 +134,12 @@ namespace DTT.WordConnect
             List<string> wordsInCrossword = new List<string>();
             List<WordHintPair> wordsHintsInCrossword = new List<WordHintPair>();
 
-            // Get all words and word hint pairs from the configuration object and add them to the lists.
+            // Get all placed words from the configuration object and add them to the lists.
             foreach (WordVector wordVector in Configuration.WordVectors)
             {
-                wordsInCrossword.Add(KurmanjiTextUtility.NormalizeWord(wordVector.WordHintPair.Word));
-                wordsHintsInCrossword.Add(wordVector.WordHintPair);
+                string normalizedWord = KurmanjiTextUtility.NormalizeWord(wordVector.Word);
+                wordsInCrossword.Add(normalizedWord);
+                wordsHintsInCrossword.Add(Configuration.GetWordHintPair(normalizedWord));
             }
 
             // Update the game state object with the words currently in the game and build the hint options with the given words.

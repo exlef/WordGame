@@ -145,11 +145,16 @@ namespace DTT.WordConnect
         /// <summary>
         /// Builds the available hint options array from a set of words.
         /// </summary>
-        /// <param name="availableWords">List of WordHintPair objects which are active in this game.</param>
+        /// <param name="availableWords">Word/hint pairs which are active in this game.</param>
         public void SetHintOptions(List<WordHintPair> availableWords)
         {
             foreach (WordHintPair word in availableWords)
+            {
+                if (word == null || string.IsNullOrEmpty(word.Word))
+                    continue;
+
                 HintOptions.Add(new HintOption(word.Word, word.Hint));
+            }
         }
 
         /// <summary>

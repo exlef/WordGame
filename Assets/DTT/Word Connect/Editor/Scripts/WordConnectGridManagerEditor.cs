@@ -18,7 +18,7 @@ namespace DTT.WordConnect.Editor
         GridPropertyCache propertyCache;
 
         /// <summary>
-        /// Reference to the game data to check whether a dictionary has been attached.
+        /// Reference to the game data to check whether words have been configured.
         /// </summary>
         WordConnectConfigurationData gameData;
 
@@ -85,7 +85,7 @@ namespace DTT.WordConnect.Editor
             // Only show the generation button if a modifiable game data file was provided.
             if (gameData != null)
             {
-                if (gameData.DictionaryAsset && gameData.DictionaryAsset.WordHintPairs.Length > 0)
+                if (gameData.HasConfiguredWords)
                 {
                     // Generate layout button.
                     if (GUILayout.Button("Generate New Layout", GUILayout.ExpandWidth(true)))
@@ -107,10 +107,10 @@ namespace DTT.WordConnect.Editor
                     }
                     GUILayout.EndHorizontal();
                 }
-                // Show an error box if the game data does not have a dictionary associated with it.
+                // Show an error box if the game data does not have words configured.
                 else
                 {
-                    EditorGUILayout.HelpBox("ERROR: Given WordConnectConfigurationData has no dictionary attached to it or has no words!", MessageType.Error);
+                    EditorGUILayout.HelpBox("ERROR: Given WordConnectConfigurationData has no words configured!", MessageType.Error);
                 }
             }
             // Show a warning box if no game data file was provided.

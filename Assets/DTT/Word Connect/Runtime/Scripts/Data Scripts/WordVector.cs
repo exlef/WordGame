@@ -35,22 +35,22 @@ namespace DTT.WordConnect
         public List<Vector2Int> InfluencedPositions { get; private set; }
 
         /// <summary>
-        /// The word and hint associated with this vector, important in calculating
-        /// occupied or influenced positions and the creation of a <see cref="WordTile"/>.
+        /// The word associated with this vector, important in calculating
+        /// occupied or influenced positions and the creation of a word tile.
         /// </summary>
         [field: SerializeField]
-        public WordHintPair WordHintPair { get; private set; }
+        public string Word { get; private set; }
 
         /// <summary>
         /// Constructor for quick creation of word vector.
         /// </summary>
-        /// <param name="wordHintPair">The word hint pair that this vector represents.</param>
+        /// <param name="word">The word that this vector represents.</param>
         /// <param name="originPosition">The origin for this word in an abstract grid.</param>
         /// <param name="isDown">If the words orientation is down or across.</param>
-        public WordVector(WordHintPair wordHintPair, Vector2Int originPosition, bool isDown)
+        public WordVector(string word, Vector2Int originPosition, bool isDown)
         {
             // Setup parameter data.
-            WordHintPair = wordHintPair;
+            Word = KurmanjiTextUtility.NormalizeWord(word);
             OriginPosition = originPosition;
             IsDown = isDown;
 
@@ -65,7 +65,7 @@ namespace DTT.WordConnect
         /// Creates a copy of the word vector.
         /// </summary>
         /// <returns>A copy of the word vector.</returns>
-        public WordVector ReturnCopy() => new WordVector(WordHintPair, OriginPosition, IsDown);
+        public WordVector ReturnCopy() => new WordVector(Word, OriginPosition, IsDown);
 
         /// <summary>
         /// Single method that calls both position calculation methods.
@@ -86,7 +86,7 @@ namespace DTT.WordConnect
             if (OccupiedPositions.Count > 0) OccupiedPositions.Clear();
 
             // Add positions based on the length and orientation of the word.
-            for (int i = 0; i < WordHintPair.Word.Length; i++)
+            for (int i = 0; i < Word.Length; i++)
             {
                 Vector2Int newPosition = OriginPosition + new Vector2Int(IsDown ? 0 : i, IsDown ? -i : 0);
                 OccupiedPositions.Add(newPosition);

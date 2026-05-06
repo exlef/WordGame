@@ -22,9 +22,9 @@ namespace DTT.WordConnect.Demo
         private bool _isFound;
 
         /// <summary>
-        /// The word hint pair that this class will attempt to represent and manage.
+        /// The word that this class will attempt to represent and manage.
         /// </summary>
-        public WordHintPair WordHint { get; private set; }
+        public string Word { get; private set; }
 
         /// <summary>
         /// List of letter tiles that are associated with this specific word.
@@ -44,12 +44,12 @@ namespace DTT.WordConnect.Demo
         /// <summary>
         /// Creates a new Scriptable Object Instance of <see cref="WordTile"/> and initializes its variables.
         /// </summary>
-        /// <param name="wordHintPair">The word this returned WordTile will represent.</param>
-        /// <returns>A new <see cref="WordTile"/> representing the given WordHintPair.</returns>
-        public static WordTile CreateWordTile(WordHintPair wordHintPair)
+        /// <param name="word">The word this returned WordTile will represent.</param>
+        /// <returns>A new <see cref="WordTile"/> representing the given word.</returns>
+        public static WordTile CreateWordTile(string word)
         {
             WordTile wordTile = CreateInstance<WordTile>();
-            wordTile.WordHint = wordHintPair;
+            wordTile.Word = KurmanjiTextUtility.NormalizeWord(word);
             wordTile._isFound = false;
             wordTile._letterTiles = new List<LetterTile>();
             wordTile._overlappingElements = new Dictionary<LetterTile, WordTile>();
@@ -82,7 +82,7 @@ namespace DTT.WordConnect.Demo
         private void CheckIfLetterHinted(WordConnectState state)
         {
             // If the CompletelyHintedWords list contains this word, set all letters to hinted.
-            if (state.CompletelyHintedWords.Any(x => KurmanjiTextUtility.WordsEqual(x.Word, WordHint.Word)))
+            if (state.CompletelyHintedWords.Any(x => KurmanjiTextUtility.WordsEqual(x.Word, Word)))
             {
                 SetHintedLetters();
                 return;
@@ -91,7 +91,7 @@ namespace DTT.WordConnect.Demo
             foreach (HintOption hint in state.HintOptions)
             {
                 // If this HintOption represents the same word, update the letter tiles state to reflect which letters are revealed.
-                if (KurmanjiTextUtility.WordsEqual(hint.Word, WordHint.Word))
+                if (KurmanjiTextUtility.WordsEqual(hint.Word, Word))
                 {
                     SetHintedLetters(hint.LetterRevealed);
                     return;
@@ -156,7 +156,7 @@ namespace DTT.WordConnect.Demo
         /// <param name="state">The updated game state.</param>
         private void CheckIfWordFound(WordConnectState state)
         {
-            if (state.CorrectlyAddedWords.Any(word => KurmanjiTextUtility.WordsEqual(word, WordHint.Word)) && !_isFound)
+            if (state.CorrectlyAddedWords.Any(word => KurmanjiTextUtility.WordsEqual(word, Word)) && !_isFound)
             {
                 // Set state and update all letter tiles to visualize the word being found.
                 _isFound = true;
