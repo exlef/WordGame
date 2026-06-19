@@ -30,7 +30,21 @@ namespace DTT.WordConnect.Editor
         protected override WordConnectConfigurationData GetConfig(int levelNumber)
         {
             WordConnectManager.Instance.SetCurrentLevelNumber(levelNumber);
-            return _wordConnectConfigurations[(levelNumber - 1) % _wordConnectConfigurations.Length];
+
+            if (_wordConnectConfigurations == null || _wordConnectConfigurations.Length == 0)
+            {
+                Debug.LogError("No Word Connect level configurations are assigned.");
+                return null;
+            }
+
+            int index = levelNumber - 1;
+            if (index < 0 || index >= _wordConnectConfigurations.Length)
+            {
+                Debug.LogError($"No Word Connect level configuration is assigned for level {levelNumber}.");
+                index = Mathf.Clamp(index, 0, _wordConnectConfigurations.Length - 1);
+            }
+
+            return _wordConnectConfigurations[index];
         }
     }
 }

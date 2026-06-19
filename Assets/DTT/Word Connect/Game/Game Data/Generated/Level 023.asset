@@ -1,0 +1,179 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d991669cd30d37c4c8e2ab4a95363015, type: 3}
+  m_Name: Level 023
+  m_EditorClassIdentifier: 
+  _gameName: Level 23
+  _wordHintsAvailable: 0
+  _letterHintsAvailable: 0
+  _descriptionHintsAvailable: 0
+  _wordHintPairs:
+  - word: xwendekar
+    hint: "Kes\xEA ku dixw\xEEne."
+  - word: kar
+    hint: "Ti\u015Fta ku mirov dike."
+  - word: ders
+    hint: "Ti\u015Fta f\xEArb\xFBn\xEA."
+  - word: dan
+    hint: "Kar\xEA day\xEEn\xEA."
+  - word: nav
+    hint: "Peyva ku mirov p\xEA t\xEA nas\xEEn."
+  _prioritizeLongestWordHint: 0
+  _wordVectors:
+  - <OriginPosition>k__BackingField: {x: 0, y: 0}
+    <IsDown>k__BackingField: 1
+    <OccupiedPositions>k__BackingField:
+    - {x: 0, y: 0}
+    - {x: 0, y: -1}
+    - {x: 0, y: -2}
+    <InfluencedPositions>k__BackingField:
+    - {x: -1, y: 0}
+    - {x: 1, y: 0}
+    - {x: 0, y: 1}
+    - {x: -1, y: -1}
+    - {x: 1, y: -1}
+    - {x: -1, y: -2}
+    - {x: 1, y: -2}
+    - {x: 0, y: -3}
+    <Word>k__BackingField: nav
+  - <OriginPosition>k__BackingField: {x: -2, y: 0}
+    <IsDown>k__BackingField: 0
+    <OccupiedPositions>k__BackingField:
+    - {x: -2, y: 0}
+    - {x: -1, y: 0}
+    - {x: 0, y: 0}
+    <InfluencedPositions>k__BackingField:
+    - {x: -2, y: 1}
+    - {x: -2, y: -1}
+    - {x: -3, y: 0}
+    - {x: -1, y: 1}
+    - {x: -1, y: -1}
+    - {x: 0, y: 1}
+    - {x: 0, y: -1}
+    - {x: 1, y: 0}
+    <Word>k__BackingField: dan
+  - <OriginPosition>k__BackingField: {x: -2, y: 0}
+    <IsDown>k__BackingField: 1
+    <OccupiedPositions>k__BackingField:
+    - {x: -2, y: 0}
+    - {x: -2, y: -1}
+    - {x: -2, y: -2}
+    - {x: -2, y: -3}
+    <InfluencedPositions>k__BackingField:
+    - {x: -3, y: 0}
+    - {x: -1, y: 0}
+    - {x: -2, y: 1}
+    - {x: -3, y: -1}
+    - {x: -1, y: -1}
+    - {x: -3, y: -2}
+    - {x: -1, y: -2}
+    - {x: -3, y: -3}
+    - {x: -1, y: -3}
+    - {x: -2, y: -4}
+    <Word>k__BackingField: ders
+  - <OriginPosition>k__BackingField: {x: -4, y: -2}
+    <IsDown>k__BackingField: 0
+    <OccupiedPositions>k__BackingField:
+    - {x: -4, y: -2}
+    - {x: -3, y: -2}
+    - {x: -2, y: -2}
+    <InfluencedPositions>k__BackingField:
+    - {x: -4, y: -1}
+    - {x: -4, y: -3}
+    - {x: -5, y: -2}
+    - {x: -3, y: -1}
+    - {x: -3, y: -3}
+    - {x: -2, y: -1}
+    - {x: -2, y: -3}
+    - {x: -1, y: -2}
+    <Word>k__BackingField: kar
+  - <OriginPosition>k__BackingField: {x: -4, y: 4}
+    <IsDown>k__BackingField: 1
+    <OccupiedPositions>k__BackingField:
+    - {x: -4, y: 4}
+    - {x: -4, y: 3}
+    - {x: -4, y: 2}
+    - {x: -4, y: 1}
+    - {x: -4, y: 0}
+    - {x: -4, y: -1}
+    - {x: -4, y: -2}
+    - {x: -4, y: -3}
+    - {x: -4, y: -4}
+    <InfluencedPositions>k__BackingField:
+    - {x: -5, y: 4}
+    - {x: -3, y: 4}
+    - {x: -4, y: 5}
+    - {x: -5, y: 3}
+    - {x: -3, y: 3}
+    - {x: -5, y: 2}
+    - {x: -3, y: 2}
+    - {x: -5, y: 1}
+    - {x: -3, y: 1}
+    - {x: -5, y: 0}
+    - {x: -3, y: 0}
+    - {x: -5, y: -1}
+    - {x: -3, y: -1}
+    - {x: -5, y: -2}
+    - {x: -3, y: -2}
+    - {x: -5, y: -3}
+    - {x: -3, y: -3}
+    - {x: -5, y: -4}
+    - {x: -3, y: -4}
+    - {x: -4, y: -5}
+    <Word>k__BackingField: xwendekar
+  _gridWidth: 5
+  _flattenedLetterLayout:
+  - x
+  - $
+  - 
+  - 
+  - 
+  - w
+  - $
+  - 
+  - 
+  - 
+  - e
+  - $
+  - 
+  - 
+  - 
+  - n
+  - $
+  - $
+  - $
+  - $
+  - d
+  - $
+  - d
+  - a
+  - n
+  - e
+  - $
+  - e
+  - $
+  - a
+  - k
+  - a
+  - r
+  - $
+  - v
+  - a
+  - $
+  - s
+  - $
+  - $
+  - r
+  - $
+  - $
+  - 
+  - 

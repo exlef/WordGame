@@ -1,0 +1,179 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d991669cd30d37c4c8e2ab4a95363015, type: 3}
+  m_Name: Level 046
+  m_EditorClassIdentifier: 
+  _gameName: Level 46
+  _wordHintsAvailable: 0
+  _letterHintsAvailable: 0
+  _descriptionHintsAvailable: 0
+  _wordHintPairs:
+  - word: azad
+    hint: "B\xEA bend \xFB asteng."
+  - word: "azad\xEE"
+    hint: "Hala azad b\xFBn\xEA."
+  - word: welat
+    hint: "Cih\xEA ku gel l\xEA dij\xEE."
+  - word: gel
+    hint: "Koma mirov\xEAn yek civak\xEA."
+  - word: zarok
+    hint: "Mirovek\xEE bi\xE7\xFBk."
+  _prioritizeLongestWordHint: 0
+  _wordVectors:
+  - <OriginPosition>k__BackingField: {x: 0, y: 0}
+    <IsDown>k__BackingField: 1
+    <OccupiedPositions>k__BackingField:
+    - {x: 0, y: 0}
+    - {x: 0, y: -1}
+    - {x: 0, y: -2}
+    - {x: 0, y: -3}
+    - {x: 0, y: -4}
+    <InfluencedPositions>k__BackingField:
+    - {x: -1, y: 0}
+    - {x: 1, y: 0}
+    - {x: 0, y: 1}
+    - {x: -1, y: -1}
+    - {x: 1, y: -1}
+    - {x: -1, y: -2}
+    - {x: 1, y: -2}
+    - {x: -1, y: -3}
+    - {x: 1, y: -3}
+    - {x: -1, y: -4}
+    - {x: 1, y: -4}
+    - {x: 0, y: -5}
+    <Word>k__BackingField: zarok
+  - <OriginPosition>k__BackingField: {x: -1, y: 0}
+    <IsDown>k__BackingField: 0
+    <OccupiedPositions>k__BackingField:
+    - {x: -1, y: 0}
+    - {x: 0, y: 0}
+    - {x: 1, y: 0}
+    - {x: 2, y: 0}
+    <InfluencedPositions>k__BackingField:
+    - {x: -1, y: 1}
+    - {x: -1, y: -1}
+    - {x: -2, y: 0}
+    - {x: 0, y: 1}
+    - {x: 0, y: -1}
+    - {x: 1, y: 1}
+    - {x: 1, y: -1}
+    - {x: 2, y: 1}
+    - {x: 2, y: -1}
+    - {x: 3, y: 0}
+    <Word>k__BackingField: azad
+  - <OriginPosition>k__BackingField: {x: 2, y: 3}
+    <IsDown>k__BackingField: 1
+    <OccupiedPositions>k__BackingField:
+    - {x: 2, y: 3}
+    - {x: 2, y: 2}
+    - {x: 2, y: 1}
+    - {x: 2, y: 0}
+    - {x: 2, y: -1}
+    <InfluencedPositions>k__BackingField:
+    - {x: 1, y: 3}
+    - {x: 3, y: 3}
+    - {x: 2, y: 4}
+    - {x: 1, y: 2}
+    - {x: 3, y: 2}
+    - {x: 1, y: 1}
+    - {x: 3, y: 1}
+    - {x: 1, y: 0}
+    - {x: 3, y: 0}
+    - {x: 1, y: -1}
+    - {x: 3, y: -1}
+    - {x: 2, y: -2}
+    <Word>k__BackingField: "azad\xEE"
+  - <OriginPosition>k__BackingField: {x: -1, y: 3}
+    <IsDown>k__BackingField: 0
+    <OccupiedPositions>k__BackingField:
+    - {x: -1, y: 3}
+    - {x: 0, y: 3}
+    - {x: 1, y: 3}
+    - {x: 2, y: 3}
+    - {x: 3, y: 3}
+    <InfluencedPositions>k__BackingField:
+    - {x: -1, y: 4}
+    - {x: -1, y: 2}
+    - {x: -2, y: 3}
+    - {x: 0, y: 4}
+    - {x: 0, y: 2}
+    - {x: 1, y: 4}
+    - {x: 1, y: 2}
+    - {x: 2, y: 4}
+    - {x: 2, y: 2}
+    - {x: 3, y: 4}
+    - {x: 3, y: 2}
+    - {x: 4, y: 3}
+    <Word>k__BackingField: welat
+  - <OriginPosition>k__BackingField: {x: 0, y: 4}
+    <IsDown>k__BackingField: 1
+    <OccupiedPositions>k__BackingField:
+    - {x: 0, y: 4}
+    - {x: 0, y: 3}
+    - {x: 0, y: 2}
+    <InfluencedPositions>k__BackingField:
+    - {x: -1, y: 4}
+    - {x: 1, y: 4}
+    - {x: 0, y: 5}
+    - {x: -1, y: 3}
+    - {x: 1, y: 3}
+    - {x: -1, y: 2}
+    - {x: 1, y: 2}
+    - {x: 0, y: 1}
+    <Word>k__BackingField: gel
+  _gridWidth: 5
+  _flattenedLetterLayout:
+  - $
+  - g
+  - $
+  - $
+  - $
+  - w
+  - e
+  - l
+  - a
+  - t
+  - $
+  - l
+  - $
+  - z
+  - $
+  - $
+  - $
+  - $
+  - a
+  - $
+  - a
+  - z
+  - a
+  - d
+  - $
+  - $
+  - a
+  - $
+  - "\xEE"
+  - $
+  - $
+  - r
+  - $
+  - $
+  - 
+  - $
+  - o
+  - $
+  - 
+  - 
+  - $
+  - k
+  - $
+  - 
+  - 

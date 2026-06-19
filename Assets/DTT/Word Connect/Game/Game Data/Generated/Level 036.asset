@@ -1,0 +1,166 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d991669cd30d37c4c8e2ab4a95363015, type: 3}
+  m_Name: Level 036
+  m_EditorClassIdentifier: 
+  _gameName: Level 36
+  _wordHintsAvailable: 0
+  _letterHintsAvailable: 0
+  _descriptionHintsAvailable: 0
+  _wordHintPairs:
+  - word: "pen\xEEr"
+    hint: "Xwarina ku ji \u015F\xEEr t\xEA \xE7\xEAkirin."
+  - word: mast
+    hint: "Xwarina sp\xEE ya ji \u015F\xEEr."
+  - word: "go\u015Ft"
+    hint: Xwarina ji heywanan.
+  - word: nan
+    hint: Xwarina rojane.
+  - word: "\u015Forbe"
+    hint: "Xwarina germ \xFB avdar."
+  _prioritizeLongestWordHint: 0
+  _wordVectors:
+  - <OriginPosition>k__BackingField: {x: 0, y: 0}
+    <IsDown>k__BackingField: 0
+    <OccupiedPositions>k__BackingField:
+    - {x: 0, y: 0}
+    - {x: 1, y: 0}
+    - {x: 2, y: 0}
+    - {x: 3, y: 0}
+    <InfluencedPositions>k__BackingField:
+    - {x: 0, y: 1}
+    - {x: 0, y: -1}
+    - {x: -1, y: 0}
+    - {x: 1, y: 1}
+    - {x: 1, y: -1}
+    - {x: 2, y: 1}
+    - {x: 2, y: -1}
+    - {x: 3, y: 1}
+    - {x: 3, y: -1}
+    - {x: 4, y: 0}
+    <Word>k__BackingField: "go\u015Ft"
+  - <OriginPosition>k__BackingField: {x: 1, y: 1}
+    <IsDown>k__BackingField: 1
+    <OccupiedPositions>k__BackingField:
+    - {x: 1, y: 1}
+    - {x: 1, y: 0}
+    - {x: 1, y: -1}
+    - {x: 1, y: -2}
+    - {x: 1, y: -3}
+    <InfluencedPositions>k__BackingField:
+    - {x: 0, y: 1}
+    - {x: 2, y: 1}
+    - {x: 1, y: 2}
+    - {x: 0, y: 0}
+    - {x: 2, y: 0}
+    - {x: 0, y: -1}
+    - {x: 2, y: -1}
+    - {x: 0, y: -2}
+    - {x: 2, y: -2}
+    - {x: 0, y: -3}
+    - {x: 2, y: -3}
+    - {x: 1, y: -4}
+    <Word>k__BackingField: "\u015Forbe"
+  - <OriginPosition>k__BackingField: {x: 0, y: -3}
+    <IsDown>k__BackingField: 0
+    <OccupiedPositions>k__BackingField:
+    - {x: 0, y: -3}
+    - {x: 1, y: -3}
+    - {x: 2, y: -3}
+    - {x: 3, y: -3}
+    - {x: 4, y: -3}
+    <InfluencedPositions>k__BackingField:
+    - {x: 0, y: -2}
+    - {x: 0, y: -4}
+    - {x: -1, y: -3}
+    - {x: 1, y: -2}
+    - {x: 1, y: -4}
+    - {x: 2, y: -2}
+    - {x: 2, y: -4}
+    - {x: 3, y: -2}
+    - {x: 3, y: -4}
+    - {x: 4, y: -2}
+    - {x: 4, y: -4}
+    - {x: 5, y: -3}
+    <Word>k__BackingField: "pen\xEEr"
+  - <OriginPosition>k__BackingField: {x: 3, y: 3}
+    <IsDown>k__BackingField: 1
+    <OccupiedPositions>k__BackingField:
+    - {x: 3, y: 3}
+    - {x: 3, y: 2}
+    - {x: 3, y: 1}
+    - {x: 3, y: 0}
+    <InfluencedPositions>k__BackingField:
+    - {x: 2, y: 3}
+    - {x: 4, y: 3}
+    - {x: 3, y: 4}
+    - {x: 2, y: 2}
+    - {x: 4, y: 2}
+    - {x: 2, y: 1}
+    - {x: 4, y: 1}
+    - {x: 2, y: 0}
+    - {x: 4, y: 0}
+    - {x: 3, y: -1}
+    <Word>k__BackingField: mast
+  - <OriginPosition>k__BackingField: {x: 2, y: 2}
+    <IsDown>k__BackingField: 0
+    <OccupiedPositions>k__BackingField:
+    - {x: 2, y: 2}
+    - {x: 3, y: 2}
+    - {x: 4, y: 2}
+    <InfluencedPositions>k__BackingField:
+    - {x: 2, y: 3}
+    - {x: 2, y: 1}
+    - {x: 1, y: 2}
+    - {x: 3, y: 3}
+    - {x: 3, y: 1}
+    - {x: 4, y: 3}
+    - {x: 4, y: 1}
+    - {x: 5, y: 2}
+    <Word>k__BackingField: nan
+  _gridWidth: 5
+  _flattenedLetterLayout:
+  - 
+  - 
+  - $
+  - m
+  - $
+  - 
+  - $
+  - n
+  - a
+  - n
+  - $
+  - "\u015F"
+  - $
+  - s
+  - $
+  - g
+  - o
+  - "\u015F"
+  - t
+  - $
+  - $
+  - r
+  - $
+  - $
+  - 
+  - $
+  - b
+  - $
+  - $
+  - $
+  - p
+  - e
+  - n
+  - "\xEE"
+  - r

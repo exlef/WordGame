@@ -11,7 +11,10 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 018beea489744cb184ed489b5769b508, type: 3}
   m_Name: Levels
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier:
+  _levelCount: 60
+  _initialUnlocks: 1
+  _saveFolderName: 96004d44-9654-4a68-bdf9-a96748efa10e
   _data:
   - levelNumber: 1
     score: 0

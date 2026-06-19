@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/DTT/Minigame Base/Assets/Scenes/DTT Level Select.unity
     guid: 12b509971f91314419189b6ccc01464d
   - enabled: 1
-    path: Assets/DTT/Word Connect/Demo/Scenes/Demo - Portrait.unity
+    path: Assets/DTT/Word Connect/Game/Scenes/Demo - Portrait.unity
     guid: be2d4f6ffebba98479348d7958dfc275
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
