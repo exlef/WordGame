@@ -600,6 +600,7 @@ GameObject:
   - component: {fileID: 1528411291}
   - component: {fileID: 1528411293}
   - component: {fileID: 1528411294}
+  - component: {fileID: 1528411295}
   m_Layer: 5
   m_Name: Container
   m_TagString: Untagged
@@ -645,7 +646,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -699,6 +700,21 @@ MonoBehaviour:
   _previousButton: {fileID: 1954170812}
   _nextButton: {fileID: 1202171138}
   _pageSelector: {fileID: 590875067}
+--- !u!114 &1528411295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1528411289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0926c3a5e4c645919109ac496b421103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pagination: {fileID: 1528411293}
+  _minimumSwipeDistance: 80
+  _maximumVerticalRatio: 0.75
 --- !u!1 &1567885892
 GameObject:
   m_ObjectHideFlags: 0
