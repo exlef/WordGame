@@ -487,10 +487,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1528411290}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.72, y: 0.06}
-  m_AnchorMax: {x: 0.72, y: 0.06}
+  m_AnchorMin: {x: 0.78, y: 0.06}
+  m_AnchorMax: {x: 0.78, y: 0.06}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 120, y: 120}
+  m_SizeDelta: {x: 126, y: 126}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1202171137
 MonoBehaviour:
@@ -504,7 +504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78a5b0f350d4649458e1296f4b6e4617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _flipType: 1
+  _flipType: 0
 --- !u!114 &1202171138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -569,7 +569,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c468aede57b1c004d955ddc12d59ada6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 22f31ffa51ef411dbb64a705f2240929, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -644,15 +644,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16470589, g: 0.18039216, b: 0.21568629, a: 1}
-  m_RaycastTarget: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 46f8450be9200994b9d5456b77dc89b1, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: 0}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -758,18 +758,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: fa7b03d1324a4dbcb597072a16a6a8ef, type: 3}
-    m_FontSize: 40
+    m_FontSize: 46
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 4
-    m_MaxSize: 40
+    m_MaxSize: 46
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "HILBIJARTINA AST\xCA"
+  m_Text: "HILBIJARTINA ASTÊ"
 --- !u!222 &1567885895
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -795,7 +795,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1738108994
 RectTransform:
   m_ObjectHideFlags: 0
@@ -889,7 +889,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -74}
-  m_SizeDelta: {x: 720, y: 188.9442}
+  m_SizeDelta: {x: 748, y: 184}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1932137166
 MonoBehaviour:
@@ -911,7 +911,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3a941cfa6010a8a44be8e8a586cbc183, type: 3}
+  m_Sprite: {fileID: 21300000, guid: adfe6c05db62464c945e06c7fa7f9164, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -957,15 +957,15 @@ RectTransform:
   m_GameObject: {fileID: 1954170810}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1528411290}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.28, y: 0.06}
-  m_AnchorMax: {x: 0.28, y: 0.06}
+  m_AnchorMin: {x: 0.22, y: 0.06}
+  m_AnchorMax: {x: 0.22, y: 0.06}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 120, y: 120}
+  m_SizeDelta: {x: 108, y: 108}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1954170812
 MonoBehaviour:
@@ -1031,7 +1031,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c468aede57b1c004d955ddc12d59ada6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 22f31ffa51ef411dbb64a705f2240929, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1099,14 +1099,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16470589, g: 0.18039216, b: 0.21568628, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: a23062362a2b403b9b335357cb4583e1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

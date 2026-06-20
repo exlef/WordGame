@@ -13,12 +13,12 @@ namespace DTT.MinigameBase.LevelSelect
         /// Called when the button is pressed.
         /// </summary>
         public event Action Pressed;
-        
+
         /// <summary>
         /// Called when the button is pressed and passed itself with the callback.
         /// </summary>
         public event Action<LevelButton> PressedThis;
-        
+
         /// <summary>
         /// The text component used to display the level number.
         /// </summary>
@@ -27,12 +27,33 @@ namespace DTT.MinigameBase.LevelSelect
         private Text _levelNumberText;
 
         /// <summary>
+        /// The image used to display the level button background.
+        /// </summary>
+        [SerializeField]
+        [Tooltip("The image used to display the level button background.")]
+        private Image _background;
+
+        /// <summary>
+        /// Sprite used when the level is unlocked.
+        /// </summary>
+        [SerializeField]
+        [Tooltip("Sprite used when the level is unlocked.")]
+        private Sprite _unlockedSprite;
+
+        /// <summary>
+        /// Sprite used when the level is locked.
+        /// </summary>
+        [SerializeField]
+        [Tooltip("Sprite used when the level is locked.")]
+        private Sprite _lockedSprite;
+
+        /// <summary>
         /// The parent object of the star images.
         /// </summary>
         [SerializeField]
         [Tooltip("The parent object of the star images.")]
         private Transform _starsParent;
-        
+
         /// <summary>
         /// The star images that are used to display the score.
         /// </summary>
@@ -58,7 +79,7 @@ namespace DTT.MinigameBase.LevelSelect
         /// The integer value of the level number this button displays.
         /// </summary>
         private int _levelNumber;
-        
+
         /// <summary>
         /// The integer value of the level number this button displays.
         /// </summary>
@@ -71,7 +92,7 @@ namespace DTT.MinigameBase.LevelSelect
                 _levelNumberText.text = value.ToString();
             }
         }
-        
+
         /// <summary>
         /// Set the level to be locked.
         /// </summary>
@@ -80,6 +101,13 @@ namespace DTT.MinigameBase.LevelSelect
             _lock.enabled = state;
             _starsParent.gameObject.SetActive(!state);
             _button.interactable = !state;
+
+            Sprite stateSprite = state ? _lockedSprite : _unlockedSprite;
+            if (_background != null && stateSprite != null)
+                _background.sprite = stateSprite;
+
+            if (_levelNumberText != null)
+                _levelNumberText.color = state ? new Color(0.45f, 0.62f, 0.78f, 1f) : Color.white;
         }
 
         /// <summary>
@@ -89,7 +117,7 @@ namespace DTT.MinigameBase.LevelSelect
         public void SetStarsAmount(int amount)
         {
             SetLocked(false);
-            
+
             _starsParent.gameObject.SetActive(true);
             for (int i = 0; i < _stars.Length; i++)
                 _stars[i].enabled = i < amount;

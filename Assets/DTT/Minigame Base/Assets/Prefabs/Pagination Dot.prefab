@@ -135,5 +135,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _image: {fileID: 911250258058668053}
   _button: {fileID: 4572894613311138263}
-  _activeColor: {r: 0.9019608, g: 0.33333334, b: 0.2509804, a: 1}
-  _inactiveColor: {r: 1, g: 1, b: 1, a: 1}
+  _activeColor: {r: 1, g: 0.32, b: 0.24, a: 1}
+  _inactiveColor: {r: 0.16, g: 0.31, b: 0.51, a: 1}
