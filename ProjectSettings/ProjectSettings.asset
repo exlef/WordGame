@@ -812,7 +812,7 @@ PlayerSettings:
   webGLMemoryGeometricGrowthCap: 96
   webGLPowerPreference: 2
   scriptingDefineSymbols:
-    Standalone: WORD_CONNECT_ASSET_STORE_RELEASE;PUBLISHING_TOOLS_ASSET_STORE_RELEASE
+    Standalone: WORD_CONNECT_ASSET_STORE_RELEASE;PUBLISHING_TOOLS_ASSET_STORE_RELEASE;LEVELPLAY_DEPENDENCIES_INSTALLED
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:

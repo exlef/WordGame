@@ -261,7 +261,18 @@ namespace DTT.WordConnect
         /// <summary>
         /// Reveals a single letter of a word.
         /// </summary>
-        public void RevealLetterHint()
+        public void RevealLetterHint() => RevealLetterHint(true);
+
+        /// <summary>
+        /// Reveals a single letter after a rewarded ad without spending a hint balance.
+        /// </summary>
+        public void RevealRewardedLetterHint() => RevealLetterHint(false);
+
+        /// <summary>
+        /// Reveals a single letter of a word.
+        /// </summary>
+        /// <param name="spendBalance">Whether this hint should consume the configured hint balance.</param>
+        private void RevealLetterHint(bool spendBalance)
         {
             // Check if there are any hint options left.
             if (WordConnectState.HintOptions.Count == 0)
@@ -318,8 +329,9 @@ namespace DTT.WordConnect
                     WordConnectState.SetHintLetterRevealed(overlappingHint, wordLetterIndex.Item2);
                 }
             }
-            // Subtract one of the letter hint balance.
-            WordConnectState.UseLetterHint();
+            if (spendBalance)
+                WordConnectState.UseLetterHint();
+
             WordConnectState.AddHintPoints(GetLetterHintCost());
             // Game state updated, invoke the event for UI to respond accordingly.
             StateUpdated?.Invoke(WordConnectState);
@@ -338,7 +350,18 @@ namespace DTT.WordConnect
         /// <summary>
         /// Reveals an entire word.
         /// </summary>
-        public void RevealWordHint()
+        public void RevealWordHint() => RevealWordHint(true);
+
+        /// <summary>
+        /// Reveals an entire word after a rewarded ad without spending a hint balance.
+        /// </summary>
+        public void RevealRewardedWordHint() => RevealWordHint(false);
+
+        /// <summary>
+        /// Reveals an entire word.
+        /// </summary>
+        /// <param name="spendBalance">Whether this hint should consume the configured hint balance.</param>
+        private void RevealWordHint(bool spendBalance)
         {
             // Check if there are any hint options left.
             if (WordConnectState.HintOptions.Count == 0)
@@ -386,8 +409,9 @@ namespace DTT.WordConnect
                     WordConnectState.SetHintLetterRevealed(overlappingHint, wordLetterIndex.Item2);
                 }
             }
-            // Subtract one of the word hint balance.
-            WordConnectState.UseWordHint();
+            if (spendBalance)
+                WordConnectState.UseWordHint();
+
             WordConnectState.AddHintPoints(wordHintCost);
             // Game state updated, invoke the event for UI to respond accordingly.
             StateUpdated?.Invoke(WordConnectState);
@@ -399,7 +423,18 @@ namespace DTT.WordConnect
         /// <summary>
         /// Reveals the description of a word.
         /// </summary>
-        public void RevealDescriptiveHint()
+        public void RevealDescriptiveHint() => RevealDescriptiveHint(true);
+
+        /// <summary>
+        /// Reveals the description of a word after a rewarded ad without spending a hint balance.
+        /// </summary>
+        public void RevealRewardedDescriptiveHint() => RevealDescriptiveHint(false);
+
+        /// <summary>
+        /// Reveals the description of a word.
+        /// </summary>
+        /// <param name="spendBalance">Whether this hint should consume the configured hint balance.</param>
+        private void RevealDescriptiveHint(bool spendBalance)
         {
             // If there is already an active hint, cancel.
             if (WordConnectState.CurrentRevealedDescriptiveHint != null)
@@ -417,8 +452,9 @@ namespace DTT.WordConnect
             // Set the chosen hint.
             WordConnectState.SetDescriptiveHint(chosenHint);
 
-            // Subtract one of the descriptive hints balance.
-            WordConnectState.UseDescriptiveHint();
+            if (spendBalance)
+                WordConnectState.UseDescriptiveHint();
+
             WordConnectState.AddHintPoints(GetDescriptionHintCost());
             // Game state updated, invoke the event for UI to respond accordingly.
             StateUpdated?.Invoke(WordConnectState);

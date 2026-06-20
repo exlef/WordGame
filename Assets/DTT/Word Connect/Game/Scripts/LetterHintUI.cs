@@ -15,6 +15,17 @@ namespace DTT.WordConnect.Demo
         private Text _textField;
 
         /// <summary>
+        /// Icon that communicates the rewarded-ad cost of the hint.
+        /// </summary>
+        [SerializeField]
+        private Sprite _adIconSprite;
+
+        /// <summary>
+        /// Runtime-created rewarded-ad icon.
+        /// </summary>
+        private Image _adIcon;
+
+        /// <summary>
         /// The button object which controls the use of a letter hint.
         /// </summary>
         [SerializeField]
@@ -32,11 +43,12 @@ namespace DTT.WordConnect.Demo
         /// <param name="state">The class containing the new game state data.</param>
         public override void UpdateUI(WordConnectState state)
         {
-            // Set the textfield to the players balance of letter hints.
-            _textField.text = state.LetterHintBalance.ToString();
-            if (state.LetterHintBalance <= 0)
+            // Replace the old numeric balance with a rewarded-ad cue.
+            HintAdBadgeUtility.ShowAdBadge(_textField, _adIconSprite, ref _adIcon);
+
+            if (state.HintOptions.Count == 0)
             {
-                // If the player has no letter hints left, disable the button.
+                // If there are no letter hints left, disable the button.
                 _letterHintButton.interactable = false;
                 _canvasGroup.alpha = 0.5f;
             }

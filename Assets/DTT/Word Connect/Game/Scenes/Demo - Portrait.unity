@@ -4787,9 +4787,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 693418832}
-        m_TargetAssemblyTypeName: DTT.WordConnect.WordConnectManager, DTT.WordConnect.Runtime
-        m_MethodName: RevealDescriptiveHint
+      - m_Target: {fileID: 693418838}
+        m_TargetAssemblyTypeName: DTT.WordConnect.Demo.RewardedHintService, DTT.WordConnect.Demo
+        m_MethodName: RequestDescriptiveHint
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12614,6 +12614,8 @@ GameObject:
   - component: {fileID: 693418834}
   - component: {fileID: 693418835}
   - component: {fileID: 693418837}
+  - component: {fileID: 693418838}
+  - component: {fileID: 693418839}
   m_Layer: 0
   m_Name: WordConnectManager
   m_TagString: Untagged
@@ -12820,6 +12822,44 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &693418838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693418831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f7d56e2c44d490ab0c541b3859e13a7, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  _wordConnectManager: {fileID: 693418832}
+  _rewardedAd: {fileID: 0}
+  _levelPlayRewardedAd: {fileID: 693418839}
+  _adRequestTimeoutSeconds: 90
+  _levelPlayCloseRewardGraceSeconds: 2
+  _allowEditorFallbackWithoutAd: 1
+--- !u!114 &693418839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693418831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c1a0e7d58f4e78a7d6010e5dfeb806, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  _androidAppKey: ""
+  _iosAppKey: ""
+  _androidRewardedAdUnitId: ""
+  _iosRewardedAdUnitId: ""
+  _placementName: ""
+  _preloadOnStart: 1
+  _pauseGameDuringAds: 1
+  _validateIntegration: 0
 --- !u!1 &697049341
 GameObject:
   m_ObjectHideFlags: 0
@@ -14265,9 +14305,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 693418832}
-        m_TargetAssemblyTypeName: DTT.WordConnect.WordConnectManager, DTT.WordConnect.Runtime
-        m_MethodName: RevealWordHint
+      - m_Target: {fileID: 693418838}
+        m_TargetAssemblyTypeName: DTT.WordConnect.Demo.RewardedHintService, DTT.WordConnect.Demo
+        m_MethodName: RequestWordHint
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -20131,6 +20171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _textField: {fileID: 2115790034}
+  _adIconSprite: {fileID: 21300000, guid: 6a7e0f3b2dd54cc489ad4b4a14ef8211, type: 3}
   _descriptiveHintButton: {fileID: 313840607}
   _canvasGroup: {fileID: 1085186896}
 --- !u!222 &1085186899
@@ -26905,6 +26946,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _textField: {fileID: 2083004334}
+  _adIconSprite: {fileID: 21300000, guid: 6a7e0f3b2dd54cc489ad4b4a14ef8211, type: 3}
   _wordHintButton: {fileID: 784887801}
   _canvasGroup: {fileID: 1501735026}
 --- !u!222 &1501735029
@@ -27532,6 +27574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _textField: {fileID: 1838352049}
+  _adIconSprite: {fileID: 21300000, guid: 6a7e0f3b2dd54cc489ad4b4a14ef8211, type: 3}
   _letterHintButton: {fileID: 2121107575}
   _canvasGroup: {fileID: 1545523541}
 --- !u!222 &1545523544
@@ -32891,7 +32934,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 3
+  m_Text: ""
 --- !u!222 &1838352050
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -37283,7 +37326,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 3
+  m_Text: ""
 --- !u!222 &2083004335
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -37806,7 +37849,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 3
+  m_Text: ""
 --- !u!222 &2115790035
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -38036,9 +38079,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 693418832}
-        m_TargetAssemblyTypeName: DTT.WordConnect.WordConnectManager, DTT.WordConnect.Runtime
-        m_MethodName: RevealLetterHint
+      - m_Target: {fileID: 693418838}
+        m_TargetAssemblyTypeName: DTT.WordConnect.Demo.RewardedHintService, DTT.WordConnect.Demo
+        m_MethodName: RequestLetterHint
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

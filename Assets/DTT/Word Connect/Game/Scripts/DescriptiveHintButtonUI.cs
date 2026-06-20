@@ -16,6 +16,17 @@ namespace DTT.WordConnect.Demo
         private Text _textField;
 
         /// <summary>
+        /// Icon that communicates the rewarded-ad cost of the hint.
+        /// </summary>
+        [SerializeField]
+        private Sprite _adIconSprite;
+
+        /// <summary>
+        /// Runtime-created rewarded-ad icon.
+        /// </summary>
+        private Image _adIcon;
+
+        /// <summary>
         /// The button object which controls the use of a descriptive hint.
         /// </summary>
         [SerializeField]
@@ -33,11 +44,11 @@ namespace DTT.WordConnect.Demo
         /// <param name="state">The class containing the new game state data.</param>
         public override void UpdateUI(WordConnectState state)
         {
-            // Set the textfield to the players balance of descriptive hints.
-            _textField.text = state.DescriptiveHintBalance.ToString();
+            // Replace the old numeric balance with a rewarded-ad cue.
+            HintAdBadgeUtility.ShowAdBadge(_textField, _adIconSprite, ref _adIcon);
 
-            // If the player has no descriptive hints left or there are no descriptions left, disable the button.
-            if (state.DescriptiveHintBalance <= 0 || state.HintOptions.All(hint => hint.DescriptionRevealed))
+            // If a description is already open or there are no descriptions left, disable the button.
+            if (state.CurrentRevealedDescriptiveHint != null || state.HintOptions.All(hint => hint.DescriptionRevealed))
             {
                 _descriptiveHintButton.interactable = false;
                 _canvasGroup.alpha = 0.5f;

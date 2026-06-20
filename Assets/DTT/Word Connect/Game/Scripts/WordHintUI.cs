@@ -15,6 +15,17 @@ namespace DTT.WordConnect.Demo
         private Text _textField;
 
         /// <summary>
+        /// Icon that communicates the rewarded-ad cost of the hint.
+        /// </summary>
+        [SerializeField]
+        private Sprite _adIconSprite;
+
+        /// <summary>
+        /// Runtime-created rewarded-ad icon.
+        /// </summary>
+        private Image _adIcon;
+
+        /// <summary>
         /// The button object which controls the use of a word hint.
         /// </summary>
         [SerializeField]
@@ -32,14 +43,14 @@ namespace DTT.WordConnect.Demo
         /// <param name="state">The class containing the updated game state data.</param>
         public override void UpdateUI(WordConnectState state)
         {
-            // Set the textfield to the players balance of word hints.
-            _textField.text = state.WordHintBalance.ToString();
+            // Replace the old numeric balance with a rewarded-ad cue.
+            HintAdBadgeUtility.ShowAdBadge(_textField, _adIconSprite, ref _adIcon);
 
-            bool hasWordHintBalance = state.WordHintBalance > 0;
+            bool hasWordHints = state.HintOptions.Count > 0;
 
             // If the player has no word hints left, disable the button.
-            _wordHintButton.interactable = hasWordHintBalance;
-            _canvasGroup.alpha = hasWordHintBalance ? 1f : 0.5f;
+            _wordHintButton.interactable = hasWordHints;
+            _canvasGroup.alpha = hasWordHints ? 1f : 0.5f;
         }
     }
 }
