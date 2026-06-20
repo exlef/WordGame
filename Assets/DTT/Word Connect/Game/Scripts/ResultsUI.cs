@@ -119,12 +119,12 @@ namespace DTT.WordConnect.Demo
             /// Applies the visual state for this star.
             /// </summary>
             /// <param name="earned">Whether the star was earned.</param>
-            /// <param name="earnedColor">Color used for earned stars and sparks.</param>
+            /// <param name="earnedColor">Color used for earned star sparks.</param>
             /// <param name="unearnedColor">Color used for unearned stars.</param>
             public void SetState(bool earned, Color earnedColor, Color unearnedColor)
             {
                 if (starImage != null)
-                    starImage.color = earned ? earnedColor : unearnedColor;
+                    starImage.color = earned ? Color.white : unearnedColor;
 
                 if (sparkObject == null)
                     return;

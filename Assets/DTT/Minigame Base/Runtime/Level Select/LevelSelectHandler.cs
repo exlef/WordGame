@@ -112,6 +112,23 @@ namespace DTT.MinigameBase.LevelSelect
         }
 
         /// <summary>
+        /// Starts the level after the current one when possible.
+        /// </summary>
+        public virtual void StartNextLevel()
+        {
+            if (_currentLevel >= _levelDatabase.Data.Count)
+            {
+                ShowLevelSelect();
+                return;
+            }
+
+            int nextLevel = _currentLevel + 1;
+            _currentLevel = nextLevel;
+            _minigame.StartGame(GetConfig(nextLevel));
+            HideLevelSelect();
+        }
+
+        /// <summary>
         /// Called when the minigame has finished with the result of the user.
         /// Determines and saves a score to the database and unlocks the next level.
         /// </summary>
