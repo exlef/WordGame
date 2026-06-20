@@ -12779,8 +12779,6 @@ MonoBehaviour:
   _backgroundColoredElements:
   - {fileID: 0}
   - {fileID: 219044265}
-  - {fileID: 1998114190}
-  - {fileID: 1693026553}
   - {fileID: 4102788}
   - {fileID: 813421124}
 --- !u!224 &693418836
@@ -24672,7 +24670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.5019608}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.89411765}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
