@@ -71,7 +71,7 @@ namespace DTT.MinigameBase.LevelSelect.PaginationManagement
             _previousButton.onClick.RemoveListener(_pagination.PreviousPage);
             _nextButton.onClick.RemoveListener(_pagination.NextPage);
             _pagination.PageChanged -= SetPageUI;
-            _pageSelector.PageSelected += _pagination.SetPage;
+            _pageSelector.PageSelected -= _pagination.SetPage;
             _pagination.ControlsEnabled -= SetButtonControl;
         }
 

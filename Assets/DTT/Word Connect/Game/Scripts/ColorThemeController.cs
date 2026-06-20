@@ -110,22 +110,25 @@ namespace DTT.WordConnect.Demo
             GameConfig.LevelBackgroundColors backgroundColors = gameConfig.GetBackgroundColorsForLevel(manager.CurrentLevelNumber);
 
             // Set the background colors.
-            _background.color = backgroundColors.BackgroundColor;
-            _backgroundGradient.color = backgroundColors.BackgroundGradientColor;
-            _backgroundElements.color = backgroundColors.BackgroundElementsColor;
+            SetImageColor(_background, backgroundColors.BackgroundColor);
+            SetImageColor(_backgroundGradient, backgroundColors.BackgroundGradientColor);
+            SetRawImageColor(_backgroundElements, backgroundColors.BackgroundElementsColor);
 
             // Set the hint button colors.
-            _hintButtons.ForEach((button) => button.color = gameConfig.HintButtonColor);
-            _hintHighlights.ForEach((button) => button.color = gameConfig.LightHintButtonColor);
+            SetImageColors(_hintButtons, gameConfig.HintButtonColor);
+            SetImageColors(_hintHighlights, gameConfig.LightHintButtonColor);
 
             // Set the highlight UI elements colors.
-            _highlightElements.ForEach((element) => element.color = gameConfig.HighlightColor);
-            _lightHighlightElements.ForEach((element) => element.color = gameConfig.LightHighlightColor);
-            _backgroundColoredElements.ForEach((element) => element.color = gameConfig.GlobalBackgroundColor);
+            SetImageColors(_highlightElements, gameConfig.HighlightColor);
+            SetImageColors(_lightHighlightElements, gameConfig.LightHighlightColor);
+            SetImageColors(_backgroundColoredElements, gameConfig.GlobalBackgroundColor);
 
             // Set letter input colors.
-            _letterInputPrefab.SetColors(gameConfig.HighlightColor, gameConfig.LetterInputLetterColor);
-            _inputLinePrefab.SetColor(gameConfig.HighlightColor);
+            if (_letterInputPrefab != null)
+                _letterInputPrefab.SetColors(gameConfig.HighlightColor, gameConfig.LetterInputLetterColor);
+
+            if (_inputLinePrefab != null)
+                _inputLinePrefab.SetColor(gameConfig.HighlightColor);
 
             // The regular text color should be equal to the found text color with the alpha set to zero.
             // This way when animating to the found state only the alpha animates.
@@ -133,7 +136,44 @@ namespace DTT.WordConnect.Demo
             regularTextColor.a = 0;
 
             // Set the letter tile state colors.
-            _letterTilePrefab.SetColors(regularTextColor, gameConfig.RegularTileColor, gameConfig.HintedTileLetterColor, gameConfig.HintedTileColor, gameConfig.FoundTileLetterColor, gameConfig.FoundTileColor);
+            if (_letterTilePrefab != null)
+                _letterTilePrefab.SetColors(regularTextColor, gameConfig.RegularTileColor, gameConfig.HintedTileLetterColor, gameConfig.HintedTileColor, gameConfig.FoundTileLetterColor, gameConfig.FoundTileColor);
+        }
+
+        /// <summary>
+        /// Sets the color of an image if it still exists in the scene.
+        /// </summary>
+        /// <param name="image">Image to color.</param>
+        /// <param name="color">Color to apply.</param>
+        private static void SetImageColor(Image image, Color color)
+        {
+            if (image != null)
+                image.color = color;
+        }
+
+        /// <summary>
+        /// Sets the color of a raw image if it still exists in the scene.
+        /// </summary>
+        /// <param name="image">Raw image to color.</param>
+        /// <param name="color">Color to apply.</param>
+        private static void SetRawImageColor(RawImage image, Color color)
+        {
+            if (image != null)
+                image.color = color;
+        }
+
+        /// <summary>
+        /// Sets the color of images that still exist in the scene.
+        /// </summary>
+        /// <param name="images">Images to color.</param>
+        /// <param name="color">Color to apply.</param>
+        private static void SetImageColors(List<Image> images, Color color)
+        {
+            if (images == null)
+                return;
+
+            for (int i = 0; i < images.Count; i++)
+                SetImageColor(images[i], color);
         }
     }
 }

@@ -453,6 +453,7 @@ MonoBehaviour:
   _levelButtonPrefab: {fileID: -428574827269724344, guid: 82d915c5376d2104ba57bdc9d47147ee, type: 3}
   _buttonsParent: {fileID: 361153109}
   _database: {fileID: 11400000, guid: 02fe56b3ccd3d8a4eac697ebeaa050a4, type: 2}
+  _comingSoonIllustrationSprite: {fileID: 21300000, guid: b7986fec061d4348a32c9e4252689e3f, type: 3}
 --- !u!1 &1202171135
 GameObject:
   m_ObjectHideFlags: 0
